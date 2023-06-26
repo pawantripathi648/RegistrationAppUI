@@ -16,6 +16,23 @@ export class EmployeesService {
     return this.http.get<CountryMaster[]>(this.baseApiUrl + '/api/registratioApi/countryname');
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
   getAllEmployees(params: string): Observable<studentDetail[]> {
     return this.http.get<studentDetail[]>(this.baseApiUrl + '/api/employeeApi' + params);
   }

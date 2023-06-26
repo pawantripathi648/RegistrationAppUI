@@ -45,8 +45,8 @@
           <label for="Country" class="form-label">Country</label>
           <mat-form-field>
             <mat-label>Choose Country</mat-label>
-            <mat-select >
-              <mat-option *ngFor="let countryMaster of countryMaster">{{countryMaster.countryName}}</mat-option>
+            <mat-select [(ngModel)]="countryMaster" [ngModelOptions]="{standalone: true}" >
+              <option  *ngFor="let countryMaster of countryMaster" (ngValue)="countryMaster.countryName">{{countryMaster.countryName}}</option>
             </mat-select>
           </mat-form-field>
 

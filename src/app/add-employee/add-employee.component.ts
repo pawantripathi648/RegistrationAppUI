@@ -12,6 +12,7 @@ import {
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.scss']
+
 })
 export class AddEmployeeComponent {
 
@@ -51,15 +52,17 @@ export class AddEmployeeComponent {
 
 
 
+
+
   getCountries(): void {
     this.employeesService.getCountries().subscribe({
       next: (countryMaster) => {
-        this.countryMaster = countryMaster;
+        this.countryMaster = countryMaster as CountryMaster[];
         console.log(countryMaster);
       },
       error: () => {
         console.log(Response);
-      },
+      }
     });
   }
 
