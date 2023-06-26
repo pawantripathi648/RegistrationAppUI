@@ -1,0 +1,122 @@
+<app-dashboard></app-dashboard>
+<div class="container my-5">
+  <h1 class="mb-2">Add New Employee</h1>
+
+  <div class="row">
+    <div class="col-8">
+      <form #form="ngForm" (ngSubmit)="addEmployees()">
+        <div class="d-inline ">
+          <label for="firstName" class="form-label">First name</label>
+          <input type="text" class="form-control" placeholder="Eg. Xyz" id="firstName" name="firstName"
+            [(ngModel)]="addEmployee.firstName">
+        </div>
+        <div class="d-inline ">
+          <label for="lastName" class="form-label">Last name</label>
+          <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Eg. abc"
+            [(ngModel)]="addEmployee.lastName">
+        </div>
+        <div class="mb-2 col-4">
+          <label for="fname" class="form-label">Father name</label>
+          <input type="text" class="form-control" id="fname" name="fname" placeholder="Eg. abc"
+            [(ngModel)]="addEmployee.fname">
+        </div>
+        <div class="mb-2 col-4">
+          <label for="mname" class="form-label">Mother name</label>
+          <input type="text" class="form-control" id="mname" name="mname" placeholder="Eg. abc"
+            [(ngModel)]="addEmployee.mname">
+        </div>
+        <div class="mb-2">
+          <label for="mnumber" class="form-label">Mobile No.</label>
+          <input type="text" class="form-control" id="mnumber" name="mnumber" placeholder="Eg. abc"
+            [(ngModel)]="addEmployee.mnumber">
+        </div>
+        <div class="mb-2">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Eg. abc@gmail.com"
+            [(ngModel)]="addEmployee.email">
+        </div>
+        <label class="my-4" for="permanentAddress">Permanent Address</label>
+        <div class="mb-2">
+          <label for="city" class="form-label">City</label>
+          <input type="text" class="form-control" id="city" name="city" placeholder="Eg. Delhi"
+            [(ngModel)]="addEmployee.city">
+        </div>
+        <div class="my-3">
+          <label for="Country" class="form-label">Country</label>
+          <mat-form-field>
+            <mat-label>Choose Country</mat-label>
+            <mat-select >
+              <mat-option *ngFor="let countryMaster of countryMaster">{{countryMaster.countryName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        <!-- </div>
+        <div class="mb-2"> -->
+          <label for="State" class="form-label">State</label>
+          <mat-form-field>
+            <mat-label>Choose State</mat-label>
+            <mat-select >
+              <mat-option *ngFor="let employee of employees let i=index">{{employee.firstName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        <!-- </div>
+        <div class="mb-2"> -->
+          <label for="District" class="form-label">District</label>
+          <mat-form-field>
+            <mat-label>Choose District</mat-label>
+            <mat-select >
+              <mat-option *ngFor="let employee of employees let i=index">{{employee.firstName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <label for="Pincode" class="form-label">Pincode</label>
+          <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Eg. India"
+            [(ngModel)]="addEmployee.pincode">
+        </div>
+        <label class="my-4" for="correspondenceAddress">Correspondence Address</label>
+        <div class="mb-2">
+          <label for="city" class="form-label">City</label>
+          <input type="text" class="form-control" id="corCity" name="city" placeholder="Eg. Delhi"
+            [(ngModel)]="addEmployee.city">
+        </div>
+        <div class="mb-3">
+          <label for="Country" class="form-label">Country</label>
+          <mat-form-field>
+            <mat-label>Choose Country</mat-label>
+            <mat-select >
+              <mat-option *ngFor="let countryMaster of countryMaster" [value]="countryMaster.countryName">{{countryMaster.countryName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        <!-- </div>
+        <div class="mb-2"> -->
+          <label for="State" class="form-label">State</label>
+          <mat-form-field>
+            <mat-label>Choose State</mat-label>
+            <mat-select >
+              <mat-option *ngFor="let employee of employees let i=index">{{employee.firstName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        <!-- </div>
+        <div class="mb-2"> -->
+          <label for="District" class="form-label">District</label>
+          <mat-form-field>
+            <mat-label>Choose District</mat-label>
+            <mat-select >
+              <mat-option *ngFor="let employee of employees let i=index">{{employee.firstName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="mb-2">
+          <label for="Pincode" class="form-label">Pincode</label>
+          <input type="text" class="form-control" id="corPincode" name="pincode" placeholder="Eg. India"
+            [(ngModel)]="addEmployee.pincode">
+        </div>
+        <button type="submit" class="btn btn-primary" mat-stroked-button >Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
