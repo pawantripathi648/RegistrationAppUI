@@ -17,22 +17,37 @@ export interface studentDetail {
   pincode: string;
 }
 export interface Employ {
-  firstName: string;
-  lastName: string;
-  fname: string;
-  mname: string;
-  mnumber: string;
-  email: string;
-  profileimg: string;
-  courseName: string;
-  LOne: string;
-  LTwo: string;
-  city: string;
-  countryid: number;
-  stateid: number;
-  districtid: number;
-  pincode: string;
+  obj1:{
+    firstName: string;
+    lastName: string;
+    fname: string;
+    mname: string;
+    mnumber: string;
+    email: string;
+    profileimg: string;
+    eid: number;
+  }
+  obj2:{
+    LOne: string;
+    LTwo: string;
+    city: string;
+    countryid: number;
+    stateid: number;
+    districtid: number;
+    pincode: string;
+  }
+  obj3:{
+    perLone: string;
+    perLtwo :  string ;
+    perCity :  string ;
+    perCountryid : number;
+    perStateid : number;
+    perDistrictid : number;
+    perPinCode :  string
+
+  }
 }
+
 export interface CountryMaster {
   countryid: number;
   countryName: string;
@@ -49,4 +64,8 @@ export interface DistrictMaster {
   districtName: string;
   stateid: number;
   Isactive: number;
+}
+export interface EducationMaster {
+  eid: number;
+  courseName: string;
 }

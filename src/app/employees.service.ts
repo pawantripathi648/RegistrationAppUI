@@ -4,6 +4,7 @@ import {
   CountryMaster,
   StateMaster,
   DistrictMaster,
+  EducationMaster,
   studentDetail,
 } from './Models/employee.model';
 import { Employ } from './Models/employee.model';
@@ -33,22 +34,28 @@ export class EmployeesService {
     );
   }
 
+  getEducation(): Observable<EducationMaster[]> {
+    return this.http.get<EducationMaster[]>(
+      this.baseApiUrl + '/api/registratioApi/education'
+    );
+  }
+
   getAllEmployees(params: string): Observable<studentDetail[]> {
     return this.http.get<studentDetail[]>(
-      this.baseApiUrl + '/api/employeeApi' + params
+      this.baseApiUrl + '/api/registratioApi/' + params
     );
   }
 
   addEmployees(addEmployee: Employ): Observable<Employ> {
     return this.http.post<Employ>(
-      this.baseApiUrl + '/api/employeeApi',
+      this.baseApiUrl + '/api/registratioApi/',
       addEmployee
     );
   }
 
   getEmployee(id: string): Observable<studentDetail> {
     return this.http.get<studentDetail>(
-      this.baseApiUrl + '/api/employeeApi/' + id
+      this.baseApiUrl + '/api/registratioApi/' + id
     );
   }
   updateEmployee(
