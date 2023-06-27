@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CountryMaster, studentDetail } from './Models/employee.model';
+import {
+  CountryMaster,
+  StateMaster,
+  DistrictMaster,
+  studentDetail,
+} from './Models/employee.model';
 import { Employ } from './Models/employee.model';
 import { Observable } from 'rxjs';
 
@@ -13,28 +18,25 @@ export class EmployeesService {
   constructor(private http: HttpClient) {}
 
   getCountries(): Observable<CountryMaster[]> {
-    return this.http.get<CountryMaster[]>(this.baseApiUrl + '/api/registratioApi/countryname');
+    return this.http.get<CountryMaster[]>(
+      this.baseApiUrl + '/api/registratioApi/countryname'
+    );
+  }
+  getStates(params: number): Observable<StateMaster[]> {
+    return this.http.get<StateMaster[]>(
+      this.baseApiUrl + '/api/registratioApi/statename/' + params
+    );
+  }
+  getDistrict(params: number): Observable<DistrictMaster[]> {
+    return this.http.get<DistrictMaster[]>(
+      this.baseApiUrl + '/api/registratioApi/districtname/' + params
+    );
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
   getAllEmployees(params: string): Observable<studentDetail[]> {
-    return this.http.get<studentDetail[]>(this.baseApiUrl + '/api/employeeApi' + params);
+    return this.http.get<studentDetail[]>(
+      this.baseApiUrl + '/api/employeeApi' + params
+    );
   }
 
   addEmployees(addEmployee: Employ): Observable<Employ> {
@@ -45,7 +47,9 @@ export class EmployeesService {
   }
 
   getEmployee(id: string): Observable<studentDetail> {
-    return this.http.get<studentDetail>(this.baseApiUrl + '/api/employeeApi/' + id);
+    return this.http.get<studentDetail>(
+      this.baseApiUrl + '/api/employeeApi/' + id
+    );
   }
   updateEmployee(
     id: number,

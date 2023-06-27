@@ -42,31 +42,38 @@
             [(ngModel)]="addEmployee.city">
         </div>
         <div class="my-3">
+
+
+
           <label for="Country" class="form-label">Country</label>
           <mat-form-field>
             <mat-label>Choose Country</mat-label>
-            <mat-select [(ngModel)]="countryMaster" [ngModelOptions]="{standalone: true}" >
-              <option  *ngFor="let countryMaster of countryMaster" (ngValue)="countryMaster.countryName">{{countryMaster.countryName}}</option>
+            <mat-select>
+              <mat-option *ngFor="let countryMaster of countryMaster" [value]="countryMaster.countryName"
+                (click)="onSelectStateName(countryMaster.countryid)">{{countryMaster.countryName}}</mat-option>
             </mat-select>
           </mat-form-field>
 
-        <!-- </div>
+
+          <!-- </div>
         <div class="mb-2"> -->
           <label for="State" class="form-label">State</label>
           <mat-form-field>
             <mat-label>Choose State</mat-label>
-            <mat-select >
-              <mat-option *ngFor="let employee of employees let i=index">{{employee.firstName}}</mat-option>
+            <mat-select>
+              <mat-option *ngFor="let stateMaster of stateMaster" [value]="stateMaster.stateName"
+                (click)="onSelectdistrictName(stateMaster.stateid)">{{stateMaster.stateName}}</mat-option>
             </mat-select>
           </mat-form-field>
 
-        <!-- </div>
+          <!-- </div>
         <div class="mb-2"> -->
           <label for="District" class="form-label">District</label>
           <mat-form-field>
             <mat-label>Choose District</mat-label>
-            <mat-select >
-              <mat-option *ngFor="let employee of employees let i=index">{{employee.firstName}}</mat-option>
+            <mat-select>
+              <mat-option *ngFor="let districtMaster of districtMaster "
+                [value]="districtMaster.districtName">{{districtMaster.districtName}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -85,28 +92,31 @@
           <label for="Country" class="form-label">Country</label>
           <mat-form-field>
             <mat-label>Choose Country</mat-label>
-            <mat-select >
-              <mat-option *ngFor="let countryMaster of countryMaster" [value]="countryMaster.countryName">{{countryMaster.countryName}}</mat-option>
+            <mat-select>
+              <mat-option *ngFor="let countryMaster of countryMaster" [value]="countryMaster.countryName"
+                (click)="onSelectStateName(countryMaster.countryid)">{{countryMaster.countryName}}</mat-option>
             </mat-select>
           </mat-form-field>
 
-        <!-- </div>
+          <!-- </div>
         <div class="mb-2"> -->
           <label for="State" class="form-label">State</label>
           <mat-form-field>
             <mat-label>Choose State</mat-label>
-            <mat-select >
-              <mat-option *ngFor="let employee of employees let i=index">{{employee.firstName}}</mat-option>
+            <mat-select>
+              <mat-option *ngFor="let stateMaster of stateMaster" [value]="stateMaster.stateName"
+                (click)="onSelectdistrictName(stateMaster.stateid)">{{stateMaster.stateName}}</mat-option>
             </mat-select>
           </mat-form-field>
 
-        <!-- </div>
+          <!-- </div>
         <div class="mb-2"> -->
           <label for="District" class="form-label">District</label>
           <mat-form-field>
             <mat-label>Choose District</mat-label>
-            <mat-select >
-              <mat-option *ngFor="let employee of employees let i=index">{{employee.firstName}}</mat-option>
+            <mat-select>
+              <mat-option *ngFor="let districtMaster of districtMaster "
+                [value]="districtMaster.districtName">{{districtMaster.districtName}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -115,7 +125,7 @@
           <input type="text" class="form-control" id="corPincode" name="pincode" placeholder="Eg. India"
             [(ngModel)]="addEmployee.pincode">
         </div>
-        <button type="submit" class="btn btn-primary" mat-stroked-button >Submit</button>
+        <button type="submit" class="btn btn-primary" mat-stroked-button>Submit</button>
       </form>
     </div>
   </div>

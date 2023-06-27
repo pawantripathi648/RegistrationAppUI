@@ -1,4 +1,4 @@
-export interface studentDetail{
+export interface studentDetail {
   id: number;
   firstName: string;
   lastName: string;
@@ -8,15 +8,15 @@ export interface studentDetail{
   email: string;
   profileimg: string;
   courseName: string;
-  LOne:string;
-  LTwo:string;
+  LOne: string;
+  LTwo: string;
   city: string;
   countryid: number;
   stateid: number;
   districtid: number;
   pincode: string;
 }
-export interface Employ{
+export interface Employ {
   firstName: string;
   lastName: string;
   fname: string;
@@ -25,16 +25,28 @@ export interface Employ{
   email: string;
   profileimg: string;
   courseName: string;
-  LOne:string;
-  LTwo:string;
+  LOne: string;
+  LTwo: string;
   city: string;
   countryid: number;
   stateid: number;
   districtid: number;
   pincode: string;
 }
-export interface CountryMaster{
+export interface CountryMaster {
   countryid: number;
   countryName: string;
+  Isactive: number;
+}
+export interface StateMaster {
+  stateid: number;
+  stateName: string;
+  countryid: number;
+  Isactive: number;
+}
+export interface DistrictMaster {
+  districtid: number;
+  districtName: string;
+  stateid: number;
   Isactive: number;
 }
