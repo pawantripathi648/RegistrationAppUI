@@ -21,11 +21,15 @@ import {
 export class AddEmployeeComponent {
   employees: Employ[] = [];
 
-  countryMaster: CountryMaster[] = [];
+  corosCountryMaster: CountryMaster[] = [];
+  permanentCountryMaster: CountryMaster[] = [];
 
-  stateMaster: StateMaster[] = [];
 
-  districtMaster: DistrictMaster[] = [];
+  corosStateMaster: StateMaster[] = [];
+  permanentStateMaster: StateMaster[] = [];
+
+  corosDistrictMaster: DistrictMaster[] = [];
+  permanentDistrictMaster: DistrictMaster[] = [];
 
   educationMaster:EducationMaster[]=[];
 
@@ -79,7 +83,8 @@ export class AddEmployeeComponent {
 
   ngOnInit(): void {
     this.employeesService.getCountries().subscribe((data: any) => {
-      this.countryMaster = data;
+      this.corosCountryMaster = data;
+      this.permanentCountryMaster=data;
       console.log(data);
     });
 
@@ -109,7 +114,7 @@ export class AddEmployeeComponent {
   }
   getStates(params: number): void {
     this.employeesService.getStates(this.params).subscribe((data: any) => {
-      this.stateMaster = data;
+      this.corosStateMaster = data;
       console.log(data);
 
     });
@@ -117,7 +122,7 @@ export class AddEmployeeComponent {
 
   getPerStates(params: number): void {
     this.employeesService.getStates(this.params).subscribe((data: any) => {
-      this.stateMaster = data;
+      this.permanentStateMaster = data;
       console.log(data);
 
     });
@@ -136,14 +141,14 @@ export class AddEmployeeComponent {
   }
   getDistrict(params: number): void {
     this.employeesService.getDistrict(this.params).subscribe((data: any) => {
-      this.districtMaster = data;
+      this.corosDistrictMaster = data;
       console.log(data);
 
     });
   }
   getPerDistrict(params: number): void {
     this.employeesService.getDistrict(this.params).subscribe((data: any) => {
-      this.districtMaster = data;
+      this.permanentDistrictMaster = data;
       console.log(data);
 
     });
@@ -176,7 +181,7 @@ export class AddEmployeeComponent {
 
     this.employeesService.addEmployees(this.addEmployee).subscribe({
       next: (employee) => {
-        this.router.navigate(['']);
+        this.router.navigate(['/']);
         console.log(employee);
       },
     });
