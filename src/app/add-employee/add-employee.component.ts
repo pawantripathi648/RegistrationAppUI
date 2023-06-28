@@ -102,7 +102,7 @@ export class AddEmployeeComponent {
     console.log(id);                  // and fetch its ID as well, depends on how you want to use this.
   }
   onSelectStateName(id: number) {
-    // this.params = id;
+    this.params = id;
     this.getPerStates(id);
     // this.addEmployee.perCountryid= this.id;
     console.log(id);                  // and fetch its ID as well, depends on how you want to use this.
