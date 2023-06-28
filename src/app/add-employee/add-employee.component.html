@@ -4,11 +4,11 @@
 
   <div class="row">
     <div class="col-8">
-      <form  (ngSubmit)="addEmployees()">
+      <form (ngSubmit)="addEmployees()">
         <div class="d-inline ">
           <label for="firstName" class="form-label">First name</label>
           <input type="text" class="form-control" placeholder="Eg. Xyz" id="firstName" name="firstName"
-          [(ngModel)]="addEmployee.obj1.firstName"  >
+            [(ngModel)]="addEmployee.obj1.firstName">
         </div>
         <div class="d-inline ">
           <label for="lastName" class="form-label">Last name</label>
@@ -80,9 +80,9 @@
           <label for="perCountry" class="form-label mr-1">Country</label>
           <mat-form-field id="perCountry" class="mx-2">
             <mat-label for="perCountry">Choose Country</mat-label>
-            <mat-select  id="perCountry">
-              <mat-option *ngFor="let perCountryMaster of countryMaster"
-                [value]="perCountryMaster.countryid" (click)="onSelectStateName(perCountryMaster.countryid)"
+            <mat-select id="perCountry">
+              <mat-option *ngFor="let perCountryMaster of countryMaster" [value]="perCountryMaster.countryid"
+                (click)="onSelectStateName(perCountryMaster.countryid)"
                 [(ngModel)]="addEmployee.obj3.perCountryid">{{perCountryMaster.countryName}}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -90,18 +90,18 @@
           <label for="perState" class="form-label mr-1">State</label>
           <mat-form-field id="perState" class="mx-2">
             <mat-label for="perState">Choose State</mat-label>
-            <mat-select  id="perState" >
-              <mat-option *ngFor="let perStateMaster of stateMaster"
-                [value]="perStateMaster.stateid" (click)="onSelectDistrictName(perStateMaster.stateid)"
+            <mat-select id="perState">
+              <mat-option *ngFor="let perStateMaster of stateMaster" [value]="perStateMaster.stateid"
+                (click)="onSelectDistrictName(perStateMaster.stateid)"
                 [(ngModel)]="addEmployee.obj3.perStateid">{{perStateMaster.stateName}}</mat-option>
             </mat-select>
           </mat-form-field>
           <label for="perDistrictname" class="form-label mr-1">District</label>
           <mat-form-field id="perDistrictname" class="mx-2">
             <mat-label for="perDistrict">Choose District</mat-label>
-            <mat-select  id="perDistrict">
-              <mat-option  *ngFor="let perDistrictMaster of districtMaster "
-                [value]="perDistrictMaster.districtid" (click)="perDistrictMaster.stateid"
+            <mat-select id="perDistrict">
+              <mat-option *ngFor="let perDistrictMaster of districtMaster " [value]="perDistrictMaster.districtid"
+                (click)="perDistrictMaster.stateid"
                 [(ngModel)]="addEmployee.obj3.perDistrictid">{{perDistrictMaster.districtName}}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -153,19 +153,19 @@
         <div class="mb-3">
           <label class="form-label mr-1">Country</label>
           <mat-form-field id="corCountry" class="mx-2">
-            <mat-label  for="corCountry">Choose Country</mat-label>
+            <mat-label for="corCountry">Choose Country</mat-label>
             <mat-select>
-              <mat-option  id="corCountry" *ngFor="let corCountryMaster of countryMaster"
+              <mat-option id="corCountry" *ngFor="let corCountryMaster of countryMaster"
                 [value]="corCountryMaster.countryid" (click)="onSelectCorStateName(corCountryMaster.countryid)"
                 [(ngModel)]="addEmployee.obj2.countryid">{{corCountryMaster.countryName}}</mat-option>
             </mat-select>
-          </mat-form-field >
+          </mat-form-field>
           <label class="form-label mr-1">State</label>
           <mat-form-field id="corState" class="mx-2">
             <mat-label for="corState">Choose State</mat-label>
             <mat-select>
-              <mat-option  id="corState" *ngFor="let corStateMaster of stateMaster"
-                [value]="corStateMaster.stateid" (click)="onSelectCorDistrictName(corStateMaster.stateid)"
+              <mat-option id="corState" *ngFor="let corStateMaster of stateMaster" [value]="corStateMaster.stateid"
+                (click)="onSelectCorDistrictName(corStateMaster.stateid)"
                 [(ngModel)]="addEmployee.obj2.stateid">{{corStateMaster.stateName}}</mat-option>
             </mat-select>
           </mat-form-field>

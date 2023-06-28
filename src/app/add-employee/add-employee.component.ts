@@ -78,9 +78,6 @@ export class AddEmployeeComponent {
   ) {}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    // getCountries(): void {
     this.employeesService.getCountries().subscribe((data: any) => {
       this.countryMaster = data;
       console.log(data);
@@ -104,8 +101,8 @@ export class AddEmployeeComponent {
     // this.addEmployee.countryid= this.id;
     console.log(id);                  // and fetch its ID as well, depends on how you want to use this.
   }
-  onSelectStateName(id: number): void {
-    this.params = id;
+  onSelectStateName(id: number) {
+    // this.params = id;
     this.getPerStates(id);
     // this.addEmployee.perCountryid= this.id;
     console.log(id);                  // and fetch its ID as well, depends on how you want to use this.
@@ -151,6 +148,10 @@ export class AddEmployeeComponent {
 
     });
   }
+
+
+
+
 
   addEmployees() {
     // console.log(this.addEmployee);
