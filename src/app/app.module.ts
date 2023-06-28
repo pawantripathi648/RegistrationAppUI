@@ -16,6 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select';
+import { EmployeelistComponent } from './employeelist/employeelist.component';
 // import { FormControl,FormControlDirective,Validators } from '@angular/forms';
 
 
@@ -23,7 +24,8 @@ import {MatSelectModule} from '@angular/material/select';
   declarations: [
     AppComponent,
     AddEmployeeComponent,
-    DashboardComponent
+    DashboardComponent,
+    EmployeelistComponent,
   ],
   imports: [
     BrowserModule,

@@ -42,7 +42,7 @@ export class EmployeesService {
 
   getAllEmployees(params: string): Observable<studentDetail[]> {
     return this.http.get<studentDetail[]>(
-      this.baseApiUrl + '/api/registratioApi/' + params
+      this.baseApiUrl + '/api/registratioApi/'
     );
   }
 

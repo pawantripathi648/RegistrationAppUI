@@ -11,10 +11,17 @@ export interface studentDetail {
   LOne: string;
   LTwo: string;
   city: string;
-  countryid: number;
-  stateid: number;
-  districtid: number;
+  countryName: string;
+  stateName: string;
+  districtName: string;
   pincode: string;
+  perLOne: string;
+  perLTwo: string;
+  perCity: string;
+  perCountryName: string;
+  perStateName: string;
+  perDistrictName: string;
+  perPincode: string;
 }
 export interface Employ {
   obj1:{
