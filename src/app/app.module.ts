@@ -16,6 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select';
+// import { FormControl,FormControlDirective,Validators } from '@angular/forms';
 
 
 @NgModule({
@@ -34,7 +35,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatSnackBarModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    MatSelectModule
+    MatSelectModule,
+    // FormControl,
+    // FormControlDirective,
+    // Validators,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,33 +4,33 @@
 
   <div class="row">
     <div class="col-8">
-      <form #form="ngForm" (ngSubmit)="addEmployees()">
+      <form  (ngSubmit)="addEmployees()">
         <div class="d-inline ">
           <label for="firstName" class="form-label">First name</label>
           <input type="text" class="form-control" placeholder="Eg. Xyz" id="firstName" name="firstName"
-            [(ngModel)]="addEmployee.obj1.firstName">
+          [(ngModel)]="addEmployee.obj1.firstName"  >
         </div>
         <div class="d-inline ">
           <label for="lastName" class="form-label">Last name</label>
           <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Eg. abc"
-            [(ngModel)]="addEmployee.obj1.lastName">
+            [(ngModel)]="addEmployee.obj1.lastName" required>
         </div>
         <div class="mb-2 ">
           <label for="fname" class="form-label">Father name</label>
           <input type="text" class="form-control" id="fname" name="fname" placeholder="Eg. abc"
-            [(ngModel)]="addEmployee.obj1.fname">
+            [(ngModel)]="addEmployee.obj1.fname" required>
         </div>
         <div class="mb-2 ">
           <label for="mname" class="form-label">Mother name</label>
           <input type="text" class="form-control" id="mname" name="mname" placeholder="Eg. abc"
-            [(ngModel)]="addEmployee.obj1.mname">
+            [(ngModel)]="addEmployee.obj1.mname" required>
         </div>
         <div class="mb-2">
           <label for="mnumber" class="form-label">Mobile No.</label>
           <input type="text" class="form-control" id="mnumber" name="mnumber" placeholder="Eg. abc"
             [(ngModel)]="addEmployee.obj1.mnumber">
         </div>
-        <div class="mb-2">
+        <div class="mb-2 ">
           <label for="email" class="form-label">Email address</label>
           <input type="email" class="form-control" id="email" name="email" placeholder="Eg. abc@gmail.com"
             [(ngModel)]="addEmployee.obj1.email">
@@ -41,7 +41,7 @@
             <mat-label>Choose Qualification</mat-label>
             <mat-select>
               <mat-option name="Qualification" *ngFor="let educationMaster of educationMaster"
-                [value]="educationMaster.courseName" (click)="educationMaster.eid"
+                [value]="educationMaster.eid" (click)="educationMaster.eid"
                 [(ngModel)]="addEmployee.obj1.eid">{{educationMaster.courseName}}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -101,7 +101,7 @@
             <mat-label for="perDistrict">Choose District</mat-label>
             <mat-select  id="perDistrict">
               <mat-option  *ngFor="let perDistrictMaster of districtMaster "
-                [value]="perDistrictMaster.districtid"
+                [value]="perDistrictMaster.districtid" (click)="perDistrictMaster.stateid"
                 [(ngModel)]="addEmployee.obj3.perDistrictid">{{perDistrictMaster.districtName}}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -174,7 +174,7 @@
             <mat-label for="corDistrict">Choose District</mat-label>
             <mat-select>
               <mat-option id="corDistrict" *ngFor="let corDistrictMaster of districtMaster "
-                [value]="corDistrictMaster.districtid"
+                [value]="corDistrictMaster.districtid" (click)="corDistrictMaster.stateid"
                 [(ngModel)]="addEmployee.obj2.districtid">{{corDistrictMaster.districtName}}</mat-option>
             </mat-select>
           </mat-form-field>
