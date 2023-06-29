@@ -40,9 +40,9 @@ export class EmployeesService {
     );
   }
 
-  getAllEmployees(params: string): Observable<studentDetail[]> {
+  getAllEmployees(): Observable<studentDetail[]> {
     return this.http.get<studentDetail[]>(
-      this.baseApiUrl + '/api/registratioApi/'
+      this.baseApiUrl + '/api/registratioApi'
     );
   }
 

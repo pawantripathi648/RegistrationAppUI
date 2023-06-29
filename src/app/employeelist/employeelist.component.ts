@@ -18,6 +18,13 @@ export class EmployeelistComponent implements OnInit {
     this.getAllEmployees();
   }
   getAllEmployees() {
-    throw new Error('Method not implemented.');
+    this.employeesService.getAllEmployees().subscribe({
+      next: (employees) => {
+        this.employees = employees;
+      },
+      error: () => {
+        console.log(Response);
+      },
+    });
   }
 }
