@@ -42,7 +42,6 @@ export class EditEmployeeComponent implements OnInit {
 
   params = 0;
   detailEmployee: studentlistid = {
-    // obj1:{
     id: 0,
     firstName: '',
     lastName: '',
@@ -52,8 +51,6 @@ export class EditEmployeeComponent implements OnInit {
     email: '',
     // profileimg: '',
     courseName: '',
-    // },
-    // obj2:{
     lOne: '',
     lTwo: '',
     city: '',
@@ -61,8 +58,6 @@ export class EditEmployeeComponent implements OnInit {
     stateName: '',
     districtName: '',
     pincode: '',
-    // },
-    // obj3:{
     perLOne: '',
     perLTwo: '',
     perCity: '',
@@ -70,7 +65,6 @@ export class EditEmployeeComponent implements OnInit {
     perStateName: '',
     perDistrictName: '',
     perPincode: '',
-    // }
   };
   employeesService: any;
   ngOnInit(): void {
@@ -85,7 +79,6 @@ export class EditEmployeeComponent implements OnInit {
               this.detailEmployee = response;
               console.log(response);
               console.log(JSON.stringify(response));
-
             },
           });
         }
