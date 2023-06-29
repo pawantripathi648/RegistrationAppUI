@@ -6,6 +6,7 @@ import {
   DistrictMaster,
   EducationMaster,
   studentDetail,
+  studentlistid,
 } from './Models/employee.model';
 import { Employ } from './Models/employee.model';
 import { Observable } from 'rxjs';
@@ -53,8 +54,8 @@ export class EmployeesService {
     );
   }
 
-  getEmployee(id: string): Observable<studentDetail> {
-    return this.http.get<studentDetail>(
+  getEmployee(id: string): Observable<studentlistid> {
+    return this.http.get<studentlistid>(
       this.baseApiUrl + '/api/registratioApi/' + id
     );
   }

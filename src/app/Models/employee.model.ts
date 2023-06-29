@@ -76,3 +76,30 @@ export interface EducationMaster {
   eid: number;
   courseName: string;
 }
+
+
+export interface studentlistid {
+  id: number;
+  firstName: string;
+  lastName: string;
+  fname: string;
+  mname: string;
+  mnumber: string;
+  email: string;
+  // profileimg: string;
+  courseName: string;
+  lOne: string;
+  lTwo: string;
+  city: string;
+  countryName: string;
+  stateName: string;
+  districtName: string;
+  pincode: string;
+  perLOne: string;
+  perLTwo: string;
+  perCity: string;
+  perCountryName: string;
+  perStateName: string;
+  perDistrictName: string;
+  perPincode: string;
+}
