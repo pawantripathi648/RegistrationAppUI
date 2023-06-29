@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
-import {
-  CountryMaster,
-  DistrictMaster,
-  Employ,
-  StateMaster,
-  EducationMaster
-} from '../Models/employee.model';
-import { EmployeesService } from '../employees.service';
+import { Component, OnInit } from '@angular/core';
+import { Employ, CountryMaster, StateMaster, DistrictMaster, EducationMaster, studentDetail } from '../Models/employee.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { EmployeesService } from '../employees.service';
 
 @Component({
-  selector: 'app-add-employee',
-  templateUrl: './add-employee.component.html',
-  styleUrls: ['./add-employee.component.scss'],
+  selector: 'app-edit-employee',
+  templateUrl: './edit-employee.component.html',
+  styleUrls: ['./edit-employee.component.scss']
 })
-export class AddEmployeeComponent {
+export class EditEmployeeComponent implements OnInit{
+
+  constructor(
+    private route: ActivatedRoute,
+    private employeeService: EmployeesService,
+    private router: Router,
+    private _snackBar: MatSnackBar
+  ) {}
+
+
   employees: Employ[] = [];
 
   corosCountryMaster: CountryMaster[] = [];
@@ -33,15 +33,14 @@ export class AddEmployeeComponent {
 
   educationMaster:EducationMaster[]=[];
 
+
   id = 0;
 
   params = 0;
 
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
-
-  addEmployee: Employ = {
-    obj1:{
+  detailEmployee: studentDetail = {
+    // obj1:{
+      id:0,
 
     firstName: '',
     lastName: '',
@@ -49,39 +48,48 @@ export class AddEmployeeComponent {
     mname: '',
     mnumber: '',
     email: '',
-    profileimg: '',
-    eid: 0,
+    // profileimg: '',
+    courseName: '',
 
-    },
-    obj2:{
-      LOne: '',
-      LTwo: '',
+    // },
+    // obj2:{
+      lOne: '',
+      lTwo: '',
       city: '',
-      countryid: 0,
-      stateid: 0,
-      districtid: 0,
+      countryName: '',
+      stateName: '',
+      districtName: '',
       pincode: '',
 
-    },
-    obj3:{
-      perLone:'',
-      perLtwo:'',
+    // },
+    // obj3:{
+      perLOne:'',
+      perLTwo:'',
       perCity :  '' ,
-      perCountryid : 0,
-      perStateid : 0,
-      perDistrictid : 0,
-      perPinCode : ''
+      perCountryName : '',
+      perStateName : '',
+      perDistrictName : '',
+      perPincode : ''
 
-    }
+    // }
   };
-
-  constructor(
-    private route: ActivatedRoute,
-    private employeesService: EmployeesService,
-    private router: Router
-  ) {}
-
+  employeesService: any;
   ngOnInit(): void {
+
+    this.route.paramMap.subscribe({
+      next: (params) => {
+        const id = params.get('id');
+
+        if (id) {
+          this.employeeService.getEmployee(id).subscribe({
+            next: (response) => {
+              this.detailEmployee = response;
+              console.log(response);
+            },
+          });
+        }
+      },
+    });
 
     this.employeesService.getEducation().subscribe((edData: any) =>{
       this.educationMaster = edData;
@@ -149,35 +157,4 @@ export class AddEmployeeComponent {
   }
 
 
-
-
-
-  addEmployees() {
-    // console.log(this.addEmployee);
-    //title case conversion
-    let str = this.addEmployee.obj1.firstName;
-    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
-    this.addEmployee.obj1.firstName = str;
-
-    //last name in small letters
-    str = this.addEmployee.obj1.lastName;
-    if (str.length == 0) {
-      str = '--';
-    } else {
-      str = str.toLowerCase();
-    }
-    this.addEmployee.obj1.lastName = str;
-
-    //city name title case
-    str = this.addEmployee.obj2.city;
-    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
-    this.addEmployee.obj2.city = str;
-
-    this.employeesService.addEmployees(this.addEmployee).subscribe({
-      next: (employee) => {
-        this.router.navigate(['/']);
-        console.log(employee);
-      },
-    });
-  }
 }

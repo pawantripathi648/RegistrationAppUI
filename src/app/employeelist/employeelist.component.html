@@ -22,42 +22,43 @@
           <table>
             <th></th>
             <th></th>
-              <tr>First Name: {{employee.firstName}} </tr>
-              <tr>Last Name: {{employee.lastName}}</tr>
-              <tr>Father Name: {{employee.fname}}</tr>
-              <tr>Mother Name: {{employee.mname}}</tr>
-              <tr>Mobile No.: {{employee.mnumber}}</tr>
-              <tr>Email: {{employee.email}}</tr>
-              <tr>Highest Education: {{employee.courseName}}</tr>
+            <tr>First Name: {{employee.firstName}} </tr>
+            <tr>Last Name: {{employee.lastName}}</tr>
+            <tr>Father Name: {{employee.fname}}</tr>
+            <tr>Mother Name: {{employee.mname}}</tr>
+            <tr>Mobile No.: {{employee.mnumber}}</tr>
+            <tr>Email: {{employee.email}}</tr>
+            <tr>Highest Education: {{employee.courseName}}</tr>
           </table>
         </td>
         <td>
           <table>
             <th></th>
             <th></th>
-              <tr>Line One: {{employee.lOne}} </tr>
-              <tr>Line Two: {{employee.lTwo}}</tr>
-              <tr>City Name: {{employee.city}}</tr>
-              <tr>Country Name: {{employee.countryName}}</tr>
-              <tr>State Name: {{employee.stateName}}</tr>
-              <tr>District Name: {{employee.districtName}}</tr>
-              <tr>Pincode: {{employee.pincode}}</tr>
+            <tr>Line One: {{employee.lOne}} </tr>
+            <tr>Line Two: {{employee.lTwo}}</tr>
+            <tr>City Name: {{employee.city}}</tr>
+            <tr>Country Name: {{employee.countryName}}</tr>
+            <tr>State Name: {{employee.stateName}}</tr>
+            <tr>District Name: {{employee.districtName}}</tr>
+            <tr>Pincode: {{employee.pincode}}</tr>
           </table>
         </td>
         <td>
           <table>
             <th></th>
             <th></th>
-              <tr>Line One: {{employee.perLOne}} </tr>
-              <tr>Line Two: {{employee.perLTwo}}</tr>
-              <tr>City Name: {{employee.perCity}}</tr>
-              <tr>Country Name: {{employee.perCountryName}}</tr>
-              <tr>State Name: {{employee.perStateName}}</tr>
-              <tr>District Name: {{employee.perDistrictName}}</tr>
-              <tr>Pincode: {{employee.perPincode}}</tr>
+            <tr>Line One: {{employee.perLOne}} </tr>
+            <tr>Line Two: {{employee.perLTwo}}</tr>
+            <tr>City Name: {{employee.perCity}}</tr>
+            <tr>Country Name: {{employee.perCountryName}}</tr>
+            <tr>State Name: {{employee.perStateName}}</tr>
+            <tr>District Name: {{employee.perDistrictName}}</tr>
+            <tr>Pincode: {{employee.perPincode}}</tr>
           </table>
         </td>
-        <td><a [routerLink]="['/employee','edit',employee.id]">View</a></td>
+        <td><a [routerLink]="['/employee','edit',employee.id]"><button class="btn btn-outline-success my-2 my-sm-0"
+              mat-stroked-button> View</button></a></td>
       </tr>
     </tbody>
   </table>

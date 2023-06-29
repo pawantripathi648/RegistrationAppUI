@@ -17,6 +17,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select';
 import { EmployeelistComponent } from './employeelist/employeelist.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 // import { FormControl,FormControlDirective,Validators } from '@angular/forms';
 
 
@@ -26,6 +27,7 @@ import { EmployeelistComponent } from './employeelist/employeelist.component';
     AddEmployeeComponent,
     DashboardComponent,
     EmployeelistComponent,
+    EditEmployeeComponent,
   ],
   imports: [
     BrowserModule,
