@@ -3,65 +3,65 @@
   <h1 class="mb-3">
     Employees
   </h1>
-
   <table class="table" *ngIf="employees">
     <thead>
       <tr>
         <th>Sr. No.</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Father name</th>
-        <th>Mother name</th>
-        <th>Mobile No.</th>
-        <th>Email</th>
-        <th>Qualification</th>
-        <th>Correspondence 1st line</th>
-        <th>Correspondence 2nd line</th>
-        <th>Correspondence City</th>
-        <th>Correspondence Country</th>
-        <th>Correspondence state</th>
-        <th>Correspondence District</th>
-        <th>Correspondence Pincode</th>
-        <th>Permanent 1st line</th>
-        <th>Permanent 2nd line</th>
-        <th>Permanent City</th>
-        <th>Permanent Country</th>
-        <th>Permanent state</th>
-        <th>Permanent District</th>
-        <th>Permanent Pincode</th>
-        <th> </th>
+        <th>Profile</th>
+        <th>Details </th>
+        <th>Correspondence Address</th>
+        <th>Permanent Address</th>
+        <th> Edit/View </th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let employee of employees let i=index">
         <td>{{i + 1}}</td>
-        <td>{{employee.firstName}}</td>
-        <td>{{employee.lastName}}</td>
-        <td>{{employee.fname}}</td>
-        <td>{{employee.mname}}</td>
-        <td>{{employee.mnumber}}</td>
-        <td>{{employee.email}}</td>
-        <td>{{employee.courseName}}</td>
-        <td>{{employee.LOne}}</td>
-        <td>{{employee.LTwo}}</td>
-        <td>{{employee.city}}</td>
-        <td>{{employee.countryName}}</td>
-        <td>{{employee.stateName}}</td>
-        <td>{{employee.districtName}}</td>
-        <td>{{employee.pincode}}</td>
-        <td>{{employee.perLOne}}</td>
-        <td>{{employee.perLTwo}}</td>
-        <td>{{employee.perCity}}</td>
-        <td>{{employee.perCountryName}}</td>
-        <td>{{employee.perStateName}}</td>
-        <td>{{employee.perDistrictName}}</td>
-        <td>{{employee.perPincode}}</td>
+        <td></td>
+        <td>
+          <table>
+            <th></th>
+            <th></th>
+              <tr>First Name: {{employee.firstName}} </tr>
+              <tr>Last Name: {{employee.lastName}}</tr>
+              <tr>Father Name: {{employee.fname}}</tr>
+              <tr>Mother Name: {{employee.mname}}</tr>
+              <tr>Mobile No.: {{employee.mnumber}}</tr>
+              <tr>Email: {{employee.email}}</tr>
+              <tr>Highest Education: {{employee.courseName}}</tr>
+          </table>
+        </td>
+        <td>
+          <table>
+            <th></th>
+            <th></th>
+              <tr>Line One: {{employee.lOne}} </tr>
+              <tr>Line Two: {{employee.lTwo}}</tr>
+              <tr>City Name: {{employee.city}}</tr>
+              <tr>Country Name: {{employee.countryName}}</tr>
+              <tr>State Name: {{employee.stateName}}</tr>
+              <tr>District Name: {{employee.districtName}}</tr>
+              <tr>Pincode: {{employee.pincode}}</tr>
+          </table>
+        </td>
+        <td>
+          <table>
+            <th></th>
+            <th></th>
+              <tr>Line One: {{employee.perLOne}} </tr>
+              <tr>Line Two: {{employee.perLTwo}}</tr>
+              <tr>City Name: {{employee.perCity}}</tr>
+              <tr>Country Name: {{employee.perCountryName}}</tr>
+              <tr>State Name: {{employee.perStateName}}</tr>
+              <tr>District Name: {{employee.perDistrictName}}</tr>
+              <tr>Pincode: {{employee.perPincode}}</tr>
+          </table>
+        </td>
         <td><a [routerLink]="['/employee','edit',employee.id]">View</a></td>
       </tr>
-
     </tbody>
-
   </table>
+
 
   <p *ngIf="!employees">No Employee Found!!</p>
 </div>

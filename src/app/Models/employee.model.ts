@@ -8,8 +8,8 @@ export interface studentDetail {
   email: string;
   // profileimg: string;
   courseName: string;
-  LOne: string;
-  LTwo: string;
+  lOne: string;
+  lTwo: string;
   city: string;
   countryName: string;
   stateName: string;
