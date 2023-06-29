@@ -97,8 +97,8 @@
           <mat-form-field class="mx-2">
             <mat-label for="perDistrict">Choose District</mat-label>
             <mat-select id="perDistrict" [(ngModel)]="addEmployee.obj3.perDistrictid" name="perDistrict">
-              <mat-option *ngFor="let perDistrictMaster of permanentDistrictMaster " [value]="perDistrictMaster.districtid"
-                (click)="perDistrictMaster.stateid">
+              <mat-option *ngFor="let perDistrictMaster of permanentDistrictMaster "
+                [value]="perDistrictMaster.districtid" (click)="perDistrictMaster.stateid">
                 {{perDistrictMaster.districtName}}</mat-option>
             </mat-select>
           </mat-form-field>

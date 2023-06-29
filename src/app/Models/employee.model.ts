@@ -24,7 +24,7 @@ export interface studentDetail {
   perPincode: string;
 }
 export interface Employ {
-  obj1:{
+  obj1: {
     firstName: string;
     lastName: string;
     fname: string;
@@ -33,8 +33,8 @@ export interface Employ {
     email: string;
     profileimg: string;
     eid: number;
-  }
-  obj2:{
+  };
+  obj2: {
     LOne: string;
     LTwo: string;
     city: string;
@@ -42,17 +42,16 @@ export interface Employ {
     stateid: number;
     districtid: number;
     pincode: string;
-  }
-  obj3:{
+  };
+  obj3: {
     perLone: string;
-    perLtwo :  string ;
-    perCity :  string ;
-    perCountryid : number;
-    perStateid : number;
-    perDistrictid : number;
-    perPinCode :  string
-
-  }
+    perLtwo: string;
+    perCity: string;
+    perCountryid: number;
+    perStateid: number;
+    perDistrictid: number;
+    perPinCode: string;
+  };
 }
 
 export interface CountryMaster {
@@ -76,7 +75,6 @@ export interface EducationMaster {
   eid: number;
   courseName: string;
 }
-
 
 export interface studentlistid {
   id: number;
