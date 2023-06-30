@@ -71,8 +71,8 @@ export class EmployeesService {
     );
   }
 
-  deleteEmployee(id: number): Observable<studentDetail> {
-    return this.http.delete<studentDetail>(
+  deleteEmployee(id: number): Observable<Employed> {
+    return this.http.delete<Employed>(
       this.baseApiUrl + '/api/registratioApi/' + id
     );
   }
