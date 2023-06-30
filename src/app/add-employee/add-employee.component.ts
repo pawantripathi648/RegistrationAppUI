@@ -19,6 +19,7 @@ import {
   styleUrls: ['./add-employee.component.scss'],
 })
 export class AddEmployeeComponent {
+ url="/assets/download.jfif";
   employees: Employ[] = [];
 
   corosCountryMaster: CountryMaster[] = [];
@@ -87,6 +88,15 @@ export class AddEmployeeComponent {
       this.permanentCountryMaster = data;
       console.log(data);
     });
+  }
+  onSelectFile(a: any){
+    if(a.target.files){
+      var reader = new FileReader();
+      reader.readAsDataURL(a.target.files[0]);
+      reader.onload=(event: any)=>{
+        this.url =event.target.result;
+      }
+    }
   }
   onSelectCorStateName(id: number): void {
     this.params = id;
