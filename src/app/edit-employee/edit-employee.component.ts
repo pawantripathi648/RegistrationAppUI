@@ -210,7 +210,9 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   deleteEmployee() {
-    this.employeeService.deleteEmployee(this.detailEmployee.id).subscribe({
+    this.employeeService.deleteEmployee(this.detailEmployee.id,
+      this.detailEmployee.aid,
+      this.detailEmployee.perAid).subscribe({
       next: () => {
         this.router.navigate(['/']);
       },
