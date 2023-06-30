@@ -54,8 +54,11 @@ export class EditEmployeeComponent implements OnInit {
     lOne: '',
     lTwo: '',
     city: '',
+    CcountryId:0,
     countryName: '',
+    CstateId:0,
     stateName: '',
+    CdistrictId:0,
     districtName: '',
     pincode: '',
     perLOne: '',
@@ -66,7 +69,6 @@ export class EditEmployeeComponent implements OnInit {
     perDistrictName: '',
     perPincode: '',
   };
-  employeesService: any;
   ngOnInit(): void {
     this.route.paramMap.subscribe({
       next: (params) => {
@@ -74,23 +76,22 @@ export class EditEmployeeComponent implements OnInit {
 
         if (id) {
           this.employeeService.getEmployee(id).subscribe({
-            next: (response) => {
+            next: (response: studentlistid[]) => {
               // response =JSON.stringify(response)
-              this.detailEmployee = response;
+              this.detailEmployee = response[0];
               console.log(response);
-              console.log(JSON.stringify(response));
             },
           });
         }
       },
     });
 
-    this.employeesService.getEducation().subscribe((edData: any) => {
+    this.employeeService.getEducation().subscribe((edData: any) => {
       this.educationMaster = edData;
       console.log(edData);
     });
 
-    this.employeesService.getCountries().subscribe((data: any) => {
+    this.employeeService.getCountries().subscribe((data: any) => {
       this.corosCountryMaster = data;
       this.permanentCountryMaster = data;
       console.log(data);
@@ -107,14 +108,14 @@ export class EditEmployeeComponent implements OnInit {
     console.log(id); // and fetch its ID as well, depends on how you want to use this.
   }
   getStates(params: number): void {
-    this.employeesService.getStates(this.params).subscribe((data: any) => {
+    this.employeeService.getStates(this.params).subscribe((data: any) => {
       this.corosStateMaster = data;
       console.log(data);
     });
   }
 
   getPerStates(params: number): void {
-    this.employeesService.getStates(this.params).subscribe((data: any) => {
+    this.employeeService.getStates(this.params).subscribe((data: any) => {
       this.permanentStateMaster = data;
       console.log(data);
     });
@@ -131,13 +132,13 @@ export class EditEmployeeComponent implements OnInit {
     console.log(id); // and fetch its ID as well, depends on how you want to use this.
   }
   getDistrict(params: number): void {
-    this.employeesService.getDistrict(this.params).subscribe((data: any) => {
+    this.employeeService.getDistrict(this.params).subscribe((data: any) => {
       this.corosDistrictMaster = data;
       console.log(data);
     });
   }
   getPerDistrict(params: number): void {
-    this.employeesService.getDistrict(this.params).subscribe((data: any) => {
+    this.employeeService.getDistrict(this.params).subscribe((data: any) => {
       this.permanentDistrictMaster = data;
       console.log(data);
     });

@@ -89,8 +89,11 @@ export interface studentlistid {
   lOne: string;
   lTwo: string;
   city: string;
+  CcountryId: number;
   countryName: string;
+  CstateId: number;
   stateName: string;
+  CdistrictId: number;
   districtName: string;
   pincode: string;
   perLOne: string;

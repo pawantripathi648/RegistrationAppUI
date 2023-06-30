@@ -54,8 +54,8 @@ export class EmployeesService {
     );
   }
 
-  getEmployee(id: string): Observable<studentlistid> {
-    return this.http.get<studentlistid>(
+  getEmployee(id: string): Observable<Array<studentlistid>> {
+    return this.http.get<Array<studentlistid>>(
       this.baseApiUrl + '/api/registratioApi/' + id
     );
   }
