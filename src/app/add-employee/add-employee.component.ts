@@ -67,7 +67,7 @@ export class AddEmployeeComponent {
       perStateid: 0,
       perDistrictid: 0,
       perPinCode: '',
-    },
+    }
   };
 
   constructor(
@@ -151,13 +151,10 @@ export class AddEmployeeComponent {
     }
     this.addEmployee.obj1.lastName = str;
 
-    //city name title case
-    str = this.addEmployee.obj2.city;
-    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
-    this.addEmployee.obj2.city = str;
-
     this.employeesService.addEmployees(this.addEmployee).subscribe({
       next: (employee) => {
+        console.log(employee);
+
         this.router.navigate(['/']);
         console.log(employee);
       },

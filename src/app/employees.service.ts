@@ -73,7 +73,7 @@ export class EmployeesService {
 
   deleteEmployee(id: number): Observable<studentDetail> {
     return this.http.delete<studentDetail>(
-      this.baseApiUrl + '/api/employeeApi/' + id
+      this.baseApiUrl + '/api/registratioApi/' + id
     );
   }
 }
