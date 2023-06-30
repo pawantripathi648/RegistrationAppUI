@@ -52,7 +52,7 @@ export class EditEmployeeComponent implements OnInit {
     email: '',
     // profileimg: '',
     courseName: '',
-    aid:0,
+    aid: 0,
     lOne: '',
     lTwo: '',
     city: '',
@@ -63,7 +63,7 @@ export class EditEmployeeComponent implements OnInit {
     CdistrictId: 0,
     districtName: '',
     pincode: '',
-    perAid:0,
+    perAid: 0,
     perLOne: '',
     perLTwo: '',
     perCity: '',
@@ -75,7 +75,7 @@ export class EditEmployeeComponent implements OnInit {
 
   addEmployee: Employed = {
     obj1: {
-      id:0,
+      id: 0,
       firstName: '',
       lastName: '',
       fname: '',
@@ -86,7 +86,7 @@ export class EditEmployeeComponent implements OnInit {
       eid: 0,
     },
     obj2: {
-      aid:0,
+      aid: 0,
       lOne: '',
       lTwo: '',
       city: '',
@@ -96,7 +96,7 @@ export class EditEmployeeComponent implements OnInit {
       pincode: '',
     },
     obj3: {
-      perAid:0,
+      perAid: 0,
       perLone: '',
       perLtwo: '',
       perCity: '',
@@ -195,9 +195,13 @@ export class EditEmployeeComponent implements OnInit {
     }
     this.addEmployee.obj1.lastName = str;
 
-
     this.employeeService
-      .updateEmployee(this.detailEmployee.id,this.detailEmployee.aid,this.detailEmployee.perAid, this.addEmployee)
+      .updateEmployee(
+        this.detailEmployee.id,
+        this.detailEmployee.aid,
+        this.detailEmployee.perAid,
+        this.addEmployee
+      )
       .subscribe({
         next: () => {
           this.router.navigate(['/']);
