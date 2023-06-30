@@ -54,11 +54,11 @@ export class EditEmployeeComponent implements OnInit {
     lOne: '',
     lTwo: '',
     city: '',
-    CcountryId:0,
+    CcountryId: 0,
     countryName: '',
-    CstateId:0,
+    CstateId: 0,
     stateName: '',
-    CdistrictId:0,
+    CdistrictId: 0,
     districtName: '',
     pincode: '',
     perLOne: '',
@@ -141,6 +141,42 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeService.getDistrict(this.params).subscribe((data: any) => {
       this.permanentDistrictMaster = data;
       console.log(data);
+    });
+  }
+
+  updateEmployee() {
+    let str = this.detailEmployee.firstName;
+    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
+    this.detailEmployee.firstName = str;
+
+    //last name in small letters
+    str = this.detailEmployee.lastName;
+    if (str.length == 0) {
+      str = '--';
+    } else {
+      str = str.toLowerCase();
+    }
+    this.detailEmployee.lastName = str;
+
+    //city name title case
+    str = this.detailEmployee.city;
+    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
+    this.detailEmployee.city = str;
+
+    this.employeeService
+      .updateEmployee(this.detailEmployee.id, this.detailEmployee)
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/']);
+        },
+      });
+  }
+
+  deleteEmployee() {
+    this.employeeService.deleteEmployee(this.detailEmployee.id).subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      },
     });
   }
 }

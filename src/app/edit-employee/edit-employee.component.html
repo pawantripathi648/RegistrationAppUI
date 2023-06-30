@@ -178,7 +178,11 @@
 
         <!-- Correspondence address end -->
 
-        <button type="submit" class="btn btn-primary" mat-stroked-button>Submit</button>
+        <!-- <button type="submit" class="btn btn-primary" mat-stroked-button>Submit</button> -->
+
+        <button type="submit" class="btn btn-primary" mat-stroked-button  (click)="updateEmployee()">Update </button>
+        <!-- <p>  </p> -->
+        <button type="delete" class="btn btn-danger m-3" mat-stroked-button (click)="deleteEmployee()">Delete</button>
       </form>
     </div>
   </div>
