@@ -7,6 +7,7 @@ import {
   EducationMaster,
   studentDetail,
   studentlistid,
+  Employed,
 } from '../Models/employee.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -51,6 +52,7 @@ export class EditEmployeeComponent implements OnInit {
     email: '',
     // profileimg: '',
     courseName: '',
+    aid:0,
     lOne: '',
     lTwo: '',
     city: '',
@@ -61,6 +63,7 @@ export class EditEmployeeComponent implements OnInit {
     CdistrictId: 0,
     districtName: '',
     pincode: '',
+    perAid:0,
     perLOne: '',
     perLTwo: '',
     perCity: '',
@@ -68,6 +71,40 @@ export class EditEmployeeComponent implements OnInit {
     perStateName: '',
     perDistrictName: '',
     perPincode: '',
+  };
+
+  addEmployee: Employed = {
+    obj1: {
+      id:0,
+      firstName: '',
+      lastName: '',
+      fname: '',
+      mname: '',
+      mnumber: '',
+      email: '',
+      profileimg: '',
+      eid: 0,
+    },
+    obj2: {
+      aid:0,
+      lOne: '',
+      lTwo: '',
+      city: '',
+      countryid: 0,
+      stateid: 0,
+      districtid: 0,
+      pincode: '',
+    },
+    obj3: {
+      perAid:0,
+      perLone: '',
+      perLtwo: '',
+      perCity: '',
+      perCountryid: 0,
+      perStateid: 0,
+      perDistrictid: 0,
+      perPinCode: '',
+    },
   };
   ngOnInit(): void {
     this.route.paramMap.subscribe({
@@ -145,26 +182,22 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   updateEmployee() {
-    let str = this.detailEmployee.firstName;
+    let str = this.addEmployee.obj1.firstName;
     str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
-    this.detailEmployee.firstName = str;
+    this.addEmployee.obj1.firstName = str;
 
     //last name in small letters
-    str = this.detailEmployee.lastName;
+    str = this.addEmployee.obj1.lastName;
     if (str.length == 0) {
       str = '--';
     } else {
       str = str.toLowerCase();
     }
-    this.detailEmployee.lastName = str;
+    this.addEmployee.obj1.lastName = str;
 
-    //city name title case
-    str = this.detailEmployee.city;
-    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
-    this.detailEmployee.city = str;
 
     this.employeeService
-      .updateEmployee(this.detailEmployee.id, this.detailEmployee)
+      .updateEmployee(this.detailEmployee.id,this.detailEmployee.aid,this.detailEmployee.perAid, this.addEmployee)
       .subscribe({
         next: () => {
           this.router.navigate(['/']);

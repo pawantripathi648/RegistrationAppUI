@@ -7,6 +7,7 @@ import {
   EducationMaster,
   studentDetail,
   studentlistid,
+  Employed,
 } from './Models/employee.model';
 import { Employ } from './Models/employee.model';
 import { Observable } from 'rxjs';
@@ -61,11 +62,12 @@ export class EmployeesService {
   }
   updateEmployee(
     id: number,
-    updateEmployeeRequest: studentDetail
-  ): Observable<studentDetail> {
-    return this.http.put<studentDetail>(
-      this.baseApiUrl + '/api/employeeApi/' + id,
-      updateEmployeeRequest
+    aid: number,
+    perAid: number,
+    updateEmployeeRequest: Employed
+  ): Observable<Employed> {
+    return this.http.put<Employed>(
+      this.baseApiUrl + '/api/registratioApi/' + id +'/' + aid +'/' + perAid,updateEmployeeRequest
     );
   }
 

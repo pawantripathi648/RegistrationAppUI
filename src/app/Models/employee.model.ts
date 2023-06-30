@@ -86,6 +86,7 @@ export interface studentlistid {
   email: string;
   // profileimg: string;
   courseName: string;
+  aid: number;
   lOne: string;
   lTwo: string;
   city: string;
@@ -96,6 +97,7 @@ export interface studentlistid {
   CdistrictId: number;
   districtName: string;
   pincode: string;
+  perAid: number;
   perLOne: string;
   perLTwo: string;
   perCity: string;
@@ -103,4 +105,37 @@ export interface studentlistid {
   perStateName: string;
   perDistrictName: string;
   perPincode: string;
+}
+export interface Employed {
+  obj1: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    fname: string;
+    mname: string;
+    mnumber: string;
+    email: string;
+    profileimg: string;
+    eid: number;
+  };
+  obj2: {
+    aid: number;
+    lOne: string;
+    lTwo: string;
+    city: string;
+    countryid: number;
+    stateid: number;
+    districtid: number;
+    pincode: string;
+  };
+  obj3: {
+    perAid: number;
+    perLone: string;
+    perLtwo: string;
+    perCity: string;
+    perCountryid: number;
+    perStateid: number;
+    perDistrictid: number;
+    perPinCode: string;
+  };
 }
