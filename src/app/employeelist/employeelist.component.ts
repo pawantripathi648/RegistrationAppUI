@@ -9,6 +9,7 @@ import { EmployeesService } from '../employees.service';
 })
 export class EmployeelistComponent implements OnInit {
   employees: studentDetail[] = [];
+  url="/assets/pic.jpeg";
   id = '';
 
   constructor(private employeesService: EmployeesService) {}

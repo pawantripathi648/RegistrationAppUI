@@ -6,7 +6,7 @@ export interface studentDetail {
   mname: string;
   mnumber: string;
   email: string;
-  // profileimg: string;
+  profileimg: string;
   courseName: string;
   lOne: string;
   lTwo: string;

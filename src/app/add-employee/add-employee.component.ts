@@ -12,6 +12,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-employee',
@@ -19,6 +20,8 @@ import {
   styleUrls: ['./add-employee.component.scss'],
 })
 export class AddEmployeeComponent {
+  name: string='';
+  file: any;
  url="/assets/download.jfif";
   employees: Employ[] = [];
 
@@ -72,6 +75,7 @@ export class AddEmployeeComponent {
   };
 
   constructor(
+    private http: HttpClient,
     private route: ActivatedRoute,
     private employeesService: EmployeesService,
     private router: Router
@@ -96,7 +100,10 @@ export class AddEmployeeComponent {
       reader.onload=(event: any)=>{
         this.url =event.target.result;
       }
+
     }
+this.file =a.target.files[0];
+
   }
   onSelectCorStateName(id: number): void {
     this.params = id;
@@ -159,7 +166,13 @@ export class AddEmployeeComponent {
     } else {
       str = str.toLowerCase();
     }
+    let formData = new FormData();
+    // formData.set('name', this.name);
+    formData.set('file', this.file);
     this.addEmployee.obj1.lastName = str;
+    this.http.post('/assets',formData).subscribe((
+      (Response: any)=>{})
+    );
 
     this.employeesService.addEmployees(this.addEmployee).subscribe({
       next: (employee) => {

@@ -10,11 +10,16 @@
           <input type="text" class="form-control" placeholder="Eg. Xyz" id="firstName" name="firstName"
             [(ngModel)]="addEmployee.obj1.firstName">
         </div>
+        <div class="d-inline ">
+          <label for="lastName" class="form-label">Last name</label>
+          <input type="text" class="form-control" placeholder="Eg. Xyz" id="lastName" name="lastName"
+            [(ngModel)]="addEmployee.obj1.lastName">
+        </div>
 
         <div class="d-inline ">
-          <label for="profileimg" class="form-label">Upload Image</label>
-          <img [src]="url" alt="preview" height="200px"> <br>
-          <input type="file" class="form-control" id="profileimg" name="profileimg"
+          <label for="profileimg" class="form-label col-9">Upload Image</label>
+          <img [src]="url" alt="preview" width="200px" height="200px"> <br>
+          <input type="file" class="img" [accept]="'.jpg , .jpeg , .jfif , .pjpeg , .pjp , .png, .svg, .webp'"  id="profileimg" name="profileimg"
             [(ngModel)]="addEmployee.obj1.profileimg" (change)="onSelectFile($event)">
         </div>
         <div class="mb-2 ">
