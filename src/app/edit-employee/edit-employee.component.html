@@ -19,6 +19,12 @@
           <input type="text" class="form-control" id="lastName" name="lastName" ngModel="{{detailEmployee.lastName}}"
             [(ngModel)]="addEmployee.obj1.lastName" required>
         </div>
+        <div class="d-inline ">
+          <label for="profileimg" class="form-label col-9">Upload Image</label>
+          <img [src]="url+[detailEmployee.profileimg]" alt="preview" width="200px" height="200px"> <br>
+          <input type="file" class="img" [accept]="'.jpg , .jpeg , .jfif , .pjpeg , .pjp , .png, .svg, .webp'"  id="profileimg" name="profileimg"
+            [(ngModel)]="addEmployee.obj1.profileimg" (change)="onSelectFile($event)">
+        </div>
         <div class="mb-2 ">
           <label for="fname" class="form-label">Father name</label>
           <input type="text" class="form-control" id="fname" name="fname" ngModel="{{detailEmployee.fname}}"

@@ -84,7 +84,7 @@ export interface studentlistid {
   mname: string;
   mnumber: string;
   email: string;
-  // profileimg: string;
+  profileimg: string;
   courseName: string;
   aid: number;
   lOne: string;

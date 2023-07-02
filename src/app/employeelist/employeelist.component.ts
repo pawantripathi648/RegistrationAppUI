@@ -9,13 +9,15 @@ import { EmployeesService } from '../employees.service';
 })
 export class EmployeelistComponent implements OnInit {
   employees: studentDetail[] = [];
-  url="/assets/pic.jpeg";
+  url="/assets/";
   id = '';
+  imgurl: any;
 
   constructor(private employeesService: EmployeesService) {}
   ngOnInit(): void {
     this.getAllEmployees();
   }
+
   getAllEmployees() {
     this.employeesService.getAllEmployees().subscribe({
       next: (employees) => {
@@ -27,4 +29,6 @@ export class EmployeelistComponent implements OnInit {
       },
     });
   }
+
 }
+

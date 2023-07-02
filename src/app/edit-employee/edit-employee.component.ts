@@ -50,7 +50,7 @@ export class EditEmployeeComponent implements OnInit {
     mname: '',
     mnumber: '',
     email: '',
-    // profileimg: '',
+    profileimg: '',
     courseName: '',
     aid: 0,
     lOne: '',
@@ -106,6 +106,23 @@ export class EditEmployeeComponent implements OnInit {
       perPinCode: '',
     },
   };
+  name: string='';
+  file: any;
+  a: any;
+ url="/assets/";
+  onSelectFile(a: any){
+    if(a.target.files){
+      var reader = new FileReader();
+      reader.readAsDataURL(a.target.files[0]);
+      reader.onload=(event: any)=>{
+        this.url =event.target.result;
+        this.a = a.target.files[0];
+        this.addEmployee.obj1.profileimg =a.target.files[0].name;
+        // console.log( a.files.name);
+        }
+    }
+
+  };
   ngOnInit(): void {
     this.route.paramMap.subscribe({
       next: (params) => {
@@ -114,7 +131,6 @@ export class EditEmployeeComponent implements OnInit {
         if (id) {
           this.employeeService.getEmployee(id).subscribe({
             next: (response: studentlistid[]) => {
-              // response =JSON.stringify(response)
               this.detailEmployee = response[0];
               console.log(response);
             },

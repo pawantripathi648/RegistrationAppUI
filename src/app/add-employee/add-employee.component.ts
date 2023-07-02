@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   CountryMaster,
   DistrictMaster,
@@ -39,7 +39,7 @@ export class AddEmployeeComponent {
   id = 0;
 
   params = 0;
-
+  filename='';
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
@@ -73,11 +73,12 @@ export class AddEmployeeComponent {
       perPinCode: '',
     }
   };
+  a: any;
 
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute,
     private employeesService: EmployeesService,
+    private route: ActivatedRoute,
     private router: Router
   ) {}
 
@@ -99,12 +100,14 @@ export class AddEmployeeComponent {
       reader.readAsDataURL(a.target.files[0]);
       reader.onload=(event: any)=>{
         this.url =event.target.result;
-      }
-
+        this.a = a.target.files[0];
+        this.addEmployee.obj1.profileimg =a.target.files[0].name;
+        // console.log( a.files.name);
+        }
     }
-this.file =a.target.files[0];
 
-  }
+  };
+
   onSelectCorStateName(id: number): void {
     this.params = id;
     this.getStates(id);
@@ -166,13 +169,14 @@ this.file =a.target.files[0];
     } else {
       str = str.toLowerCase();
     }
-    let formData = new FormData();
-    // formData.set('name', this.name);
-    formData.set('file', this.file);
+
     this.addEmployee.obj1.lastName = str;
-    this.http.post('/assets',formData).subscribe((
-      (Response: any)=>{})
-    );
+    // let formData = new FormData();
+    // // formData.set('name', this.name);
+    // formData.set('file', this.file);
+    // this.http.post('file:C:/Users/pawan/Desktop/People registration app/RegistrationAppUI/src/assets/',formData).subscribe((
+    //   (Response: any)=>{})
+    // );
 
     this.employeesService.addEmployees(this.addEmployee).subscribe({
       next: (employee) => {
