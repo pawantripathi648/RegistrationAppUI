@@ -13,6 +13,7 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
+import { UploadService } from '../upload.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -79,7 +80,8 @@ export class AddEmployeeComponent {
     private http: HttpClient,
     private employeesService: EmployeesService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private uploadService: UploadService
   ) {}
 
   ngOnInit(): void {
@@ -102,6 +104,8 @@ export class AddEmployeeComponent {
         this.url =event.target.result;
         this.a = a.target.files[0];
         this.addEmployee.obj1.profileimg =a.target.files[0].name;
+
+        this.file = a.target.files[0]
         // console.log( a.files.name);
         }
     }
@@ -154,7 +158,15 @@ export class AddEmployeeComponent {
       console.log(data);
     });
   }
-
+  upload() {
+    if (this.file) {
+      this.uploadService.uploadfile(this.file).subscribe(resp => {
+        alert("Uploaded")
+      })
+    } else {
+      alert("Please select a file first")
+    }
+  }
   addEmployees() {
     // console.log(this.addEmployee);
     //title case conversion
