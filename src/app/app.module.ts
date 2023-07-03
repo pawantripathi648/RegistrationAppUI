@@ -16,7 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { EmployeelistComponent } from './employeelist/employeelist.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 // import { FormControl,FormControlDirective,Validators } from '@angular/forms';
-
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +36,7 @@ import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
     MatFormFieldModule,
     MatPaginatorModule,
     MatSelectModule,
+    MatIconModule,
     // FormControl,
     // FormControlDirective,
     // Validators,

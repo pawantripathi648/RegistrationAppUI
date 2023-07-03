@@ -11,45 +11,45 @@
         </div>
         <div class="d-inline ">
           <label for="firstName" class="form-label">First name</label>
-          <input type="text" class="form-control" id="firstName" ngModel="{{detailEmployee.firstName}}" name="firstName"
+          <input type="text" class="form-control" id="firstName" value="{{detailEmployee.firstName}}" name="firstName"
             [(ngModel)]="addEmployee.obj1.firstName">
         </div>
         <div class="d-inline ">
           <label for="lastName" class="form-label">Last name</label>
-          <input type="text" class="form-control" id="lastName" name="lastName" ngModel="{{detailEmployee.lastName}}"
+          <input type="text" class="form-control" id="lastName" name="lastName" value="{{detailEmployee.lastName}}"
             [(ngModel)]="addEmployee.obj1.lastName" required>
         </div>
         <div class="d-inline ">
           <label for="profileimg" class="form-label col-9">Upload Image</label>
           <img [src]="url+[detailEmployee.profileimg]" alt="preview" width="200px" height="200px"> <br>
-          <input type="file" class="img" [accept]="'.jpg , .jpeg , .jfif , .pjpeg , .pjp , .png, .svg, .webp'"  id="profileimg" name="profileimg"
+          <input type="file" class="img" [accept]="'.jpg , .jpeg , .jfif , .pjpeg , .pjp , .png, .svg, .webp'"  id="profileimg" name="profileimg" value="detailEmployee.profileimg"
             [(ngModel)]="addEmployee.obj1.profileimg" (change)="onSelectFile($event)">
         </div>
         <div class="mb-2 ">
           <label for="fname" class="form-label">Father name</label>
-          <input type="text" class="form-control" id="fname" name="fname" ngModel="{{detailEmployee.fname}}"
+          <input type="text" class="form-control" id="fname" name="fname" value="{{detailEmployee.fname}}"
             [(ngModel)]="addEmployee.obj1.fname" required>
         </div>
         <div class="mb-2 ">
           <label for="mname" class="form-label">Mother name</label>
-          <input type="text" class="form-control" id="mname" name="mname" ngModel="{{detailEmployee.mname}}"
+          <input type="text" class="form-control" id="mname" name="mname" value="{{detailEmployee.mname}}"
             [(ngModel)]="addEmployee.obj1.mname" required>
         </div>
         <div class="mb-2">
           <label for="mnumber" class="form-label">Mobile No.</label>
-          <input type="text" class="form-control" id="mnumber" name="mnumber" ngModel="{{detailEmployee.mnumber}}"
+          <input type="text" class="form-control" id="mnumber" name="mnumber" value="{{detailEmployee.mnumber}}"
             [(ngModel)]="addEmployee.obj1.mnumber">
         </div>
         <div class="mb-2 ">
           <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" ngModel="{{detailEmployee.email}}"
+          <input type="email" class="form-control" id="email" name="email" value="{{detailEmployee.email}}"
             [(ngModel)]="addEmployee.obj1.email">
         </div>
         <div class="mb-2">
           <label class="form-label mr-1">Qualification</label>
           <mat-form-field class="mx-3">
             <mat-label for="Qualification">{{detailEmployee.courseName}}</mat-label>
-            <mat-select id="Qualification" ngModel="{{detailEmployee.courseName}}" [(ngModel)]="addEmployee.obj1.eid"
+            <mat-select id="Qualification" value="{{detailEmployee.courseName}}" [(ngModel)]="addEmployee.obj1.eid"
               name="Qualification">
               <mat-option name="Qualification" *ngFor="let educationMaster of educationMaster"
                 [value]="educationMaster.eid">{{educationMaster.courseName}}</mat-option>
@@ -67,19 +67,19 @@
 
         <div class="mb-2 ">
           <label for="perLone" class="form-label">Line One </label>
-          <input type="text" class="form-control" id="perLone" name="perLone" ngModel="{{detailEmployee.perLOne}}"
+          <input type="text" class="form-control" id="perLone" name="perLone" value="{{detailEmployee.perLOne}}"
             [(ngModel)]="addEmployee.obj3.perLone">
         </div>
         <div class="mb-2 ">
           <label for="perLtwo" class="form-label">Line Two </label>
-          <input type="text" class="form-control" id="perLtwo" name="perLtwo" ngModel="{{detailEmployee.perLTwo}}"
+          <input type="text" class="form-control" id="perLtwo" name="perLtwo" value="{{detailEmployee.perLTwo}}"
             [(ngModel)]="addEmployee.obj3.perLtwo">
         </div>
 
 
         <div class="mb-2">
           <label for="perCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="perCity" name="perCity" ngModel="{{detailEmployee.perCity}}"
+          <input type="text" class="form-control" id="perCity" name="perCity" value="{{detailEmployee.perCity}}"
             [(ngModel)]="addEmployee.obj3.perCity">
         </div>
 
@@ -138,12 +138,12 @@
 
         <div class="mb-2">
           <label for="LOne" class="form-label">Line One </label>
-          <input type="text" class="form-control" id="LOne" name="LOne" ngModel="{{detailEmployee.lOne}}"
+          <input type="text" class="form-control" id="LOne" name="LOne" [value]="detailEmployee.lOne"
             [(ngModel)]="addEmployee.obj2.lOne">
         </div>
         <div class="mb-2">
           <label for="LTwo" class="form-label">Line Two </label>
-          <input type="text" class="form-control" id="LTwo" name="LTwo" ngModel="{{detailEmployee.lTwo}}"
+          <input type="text" class="form-control" id="LTwo" name="LTwo"  [value]="detailEmployee.lTwo"
             [(ngModel)]="addEmployee.obj2.lTwo">
         </div>
 
@@ -151,7 +151,7 @@
 
         <div class="mb-2">
           <label for="corCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="corCity" name="corCity" ngModel="{{detailEmployee.city}}"
+          <input type="text" class="form-control" id="corCity" name="corCity" [value]="detailEmployee.city"
             [(ngModel)]="addEmployee.obj2.city">
         </div>
 
@@ -164,10 +164,10 @@
         <div class="mb-3">
           <label class="form-label mr-1">Country</label>
           <mat-form-field class="mx-2">
-            <mat-label for="corCountry">{{detailEmployee.countryName}}</mat-label>
+            <mat-label for="corCountry">Country Name</mat-label>
             <mat-select id="corCountry" ngModel="{{detailEmployee.countryName}}"
-              [(ngModel)]="addEmployee.obj2.countryid" name="corCountry">
-              <mat-option *ngFor="let corCountryMaster of corosCountryMaster" [value]="corCountryMaster.countryid"
+              [(ngModel)]="addEmployee.obj2.countryid"  name="corCountry">
+              <mat-option *ngFor="let corCountryMaster of corosCountryMaster" value="detailEmployee.countryName"
                 (click)="onSelectCorStateName(corCountryMaster.countryid)">{{corCountryMaster.countryName}}</mat-option>
             </mat-select>
           </mat-form-field>
