@@ -110,6 +110,10 @@ export interface studentlistid {
   perDistrictName: string;
   perPincode: string;
 }
+export interface login{
+  email: string;
+  password: string;
+}
 export interface Employed {
   obj1: {
     id: number;

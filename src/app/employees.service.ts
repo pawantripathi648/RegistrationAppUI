@@ -8,9 +8,11 @@ import {
   studentDetail,
   studentlistid,
   Employed,
+  login,
 } from './Models/employee.model';
 import { Employ } from './Models/employee.model';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +20,12 @@ import { Observable } from 'rxjs';
 export class EmployeesService {
   baseApiUrl = 'https://localhost:7212';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    public service: AuthService
+    ) {
+
+
+  }
 
   getCountries(): Observable<CountryMaster[]> {
     return this.http.get<CountryMaster[]>(
@@ -47,6 +54,12 @@ export class EmployeesService {
       this.baseApiUrl + '/api/registratioApi'
     );
   }
+  loginCheck(logins: login): Observable<login[]> {
+    return this.http.post<login[]>(
+      this.baseApiUrl + '/api/registratioApi/login',
+      logins
+    );
+  }
 
   addEmployees(addEmployee: Employ): Observable<Employ> {
     return this.http.post<Employ>(
@@ -67,15 +80,18 @@ export class EmployeesService {
     updateEmployeeRequest: Employed
   ): Observable<Employed> {
     return this.http.put<Employed>(
-      this.baseApiUrl + '/api/registratioApi/' + id +'/' + aid +'/' + perAid,updateEmployeeRequest
+      this.baseApiUrl + '/api/registratioApi/' + id + '/' + aid + '/' + perAid,
+      updateEmployeeRequest
     );
   }
 
-  deleteEmployee(id: number,
+  deleteEmployee(
+    id: number,
     aid: number,
-    perAid: number,): Observable<Employed> {
+    perAid: number
+  ): Observable<Employed> {
     return this.http.delete<Employed>(
-      this.baseApiUrl + '/api/registratioApi/' + id +'/' + aid +'/' + perAid
+      this.baseApiUrl + '/api/registratioApi/' + id + '/' + aid + '/' + perAid
     );
   }
 }

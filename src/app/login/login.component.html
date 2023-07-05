@@ -8,16 +8,16 @@
   <h1 class="mb-5">Log In</h1>
   <div class="row ">
     <div class="col-3">
-      <form #form="ngForm">
+      <form (ngSubmit)="loginCheck()">
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" placeholder="abc@gmail.com" id="firstName" name="firstName">
+          <input type="email" class="form-control" placeholder="abc@gmail.com" id="firstName" name="email" [(ngModel)]="logins.email">
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="**********">
+          <input type="password" class="form-control" id="password" name="password" placeholder="**********" [(ngModel)]="logins.password">
         </div>
-        <button type="submit" class="btn btn-primary" routerLink="home">Login</button>
+        <button type="submit" class="btn btn-primary" mat-stroked-button>Login</button>
         <br> <br>
         <button type="submit" class="btn btn-primary" routerLink="addEmployee">Sign Up</button>
       </form>
