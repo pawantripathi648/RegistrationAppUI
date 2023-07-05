@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <p class="navbar-brand" >Registration app</p>
+
+  </div>
+</nav>
+<div class="container my-5 d-flex flex-column ">
+  <h1 class="mb-5">Log In</h1>
+  <div class="row ">
+    <div class="col-3">
+      <form #form="ngForm">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" placeholder="abc@gmail.com" id="firstName" name="firstName">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="**********">
+        </div>
+        <button type="submit" class="btn btn-primary" routerLink="home">Login</button>
+        <br> <br>
+        <button type="submit" class="btn btn-primary" routerLink="addEmployee">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>

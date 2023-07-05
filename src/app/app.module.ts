@@ -17,6 +17,7 @@ import { EmployeelistComponent } from './employeelist/employeelist.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 // import { FormControl,FormControlDirective,Validators } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import {MatIconModule} from '@angular/material/icon';
     DashboardComponent,
     EmployeelistComponent,
     EditEmployeeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

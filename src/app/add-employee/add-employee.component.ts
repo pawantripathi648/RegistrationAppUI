@@ -72,6 +72,9 @@ export class AddEmployeeComponent {
       perStateid: 0,
       perDistrictid: 0,
       perPinCode: '',
+    },
+    obj4: {
+      password:'',
     }
   };
   a: any;

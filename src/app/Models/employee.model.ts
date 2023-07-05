@@ -52,6 +52,9 @@ export interface Employ {
     perDistrictid: number;
     perPinCode: string;
   };
+  obj4:{
+    password: string;
+  }
 }
 
 export interface CountryMaster {

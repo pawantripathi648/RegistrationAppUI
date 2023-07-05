@@ -13,6 +13,6 @@ export class UploadService {
  public uploadfile(file: File) {
    let formParams = new FormData();
    formParams.append('file', file)
-   return this.httpClient.post('/assets/', formParams)
+   return this.httpClient.post('http://192.168.1.10:82/', formParams)
  }
 }
