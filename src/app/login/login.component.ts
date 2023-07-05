@@ -9,10 +9,9 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-
   constructor(
     private http: HttpClient,
     private employeesService: EmployeesService,
@@ -20,28 +19,22 @@ export class LoginComponent {
     private router: Router,
     private uploadService: UploadService,
     public service: AuthService
-
   ) {}
 
-  logins: login ={
-    email:'',
-    password:''
+  logins: login = {
+    email: '',
+    password: '',
   };
-
 
   loginCheck() {
     this.employeesService.loginCheck(this.logins).subscribe({
       next: (validUser) => {
-        if (validUser){
-          this.service.validUser= true;
+        if (validUser) {
+          this.service.validUser = true;
           this.router.navigate(['/employee']);
+        } else {
+          alert('Invalid Email or Password');
         }
-        else{
-          alert("Invalid Email or Password")
-
-        }
-
-
       },
     });
   }

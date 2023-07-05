@@ -21,9 +21,9 @@ import { UploadService } from '../upload.service';
   styleUrls: ['./add-employee.component.scss'],
 })
 export class AddEmployeeComponent {
-  name: string='';
+  name: string = '';
   file: any;
- url="/assets/download.jfif";
+  url = '/assets/download.jfif';
   employees: Employ[] = [];
 
   corosCountryMaster: CountryMaster[] = [];
@@ -40,7 +40,7 @@ export class AddEmployeeComponent {
   id = 0;
 
   params = 0;
-  filename='';
+  filename = '';
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
@@ -74,8 +74,8 @@ export class AddEmployeeComponent {
       perPinCode: '',
     },
     obj5: {
-      email:'',
-      password: ''
+      email: '',
+      password: '',
     },
   };
   a: any;
@@ -100,21 +100,20 @@ export class AddEmployeeComponent {
       console.log(data);
     });
   }
-  onSelectFile(a: any){
-    if(a.target.files){
+  onSelectFile(a: any) {
+    if (a.target.files) {
       var reader = new FileReader();
       reader.readAsDataURL(a.target.files[0]);
-      reader.onload=(event: any)=>{
-        this.url =event.target.result;
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
         this.a = a.target.files[0];
-        this.addEmployee.obj1.profileimg =a.target.files[0].name;
+        this.addEmployee.obj1.profileimg = a.target.files[0].name;
 
-        this.file = a.target.files[0]
+        this.file = a.target.files[0];
         // console.log( a.files.name);
-        }
+      };
     }
-
-  };
+  }
 
   onSelectCorStateName(id: number): void {
     this.params = id;
@@ -164,11 +163,11 @@ export class AddEmployeeComponent {
   }
   upload() {
     if (this.file) {
-      this.uploadService.uploadfile(this.file).subscribe(resp => {
-        alert("Uploaded")
-      })
+      this.uploadService.uploadfile(this.file).subscribe((resp) => {
+        alert('Uploaded');
+      });
     } else {
-      alert("Please select a file first")
+      alert('Please select a file first');
     }
   }
   addEmployees() {

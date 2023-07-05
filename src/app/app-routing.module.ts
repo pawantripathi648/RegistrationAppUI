@@ -7,10 +7,22 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 
 const routes: Routes = [
-  {path:'', component: LoginComponent},
-  { path: 'addEmployee', component: AddEmployeeComponent, canActivate: [AuthService] },
-  { path: 'employee', component: EmployeelistComponent, canActivate: [AuthService] },
-  { path: 'employee/edit/:id', component: EditEmployeeComponent, canActivate: [AuthService] },
+  { path: '', component: LoginComponent },
+  {
+    path: 'addEmployee',
+    component: AddEmployeeComponent,
+    canActivate: [AuthService],
+  },
+  {
+    path: 'employee',
+    component: EmployeelistComponent,
+    canActivate: [AuthService],
+  },
+  {
+    path: 'employee/edit/:id',
+    component: EditEmployeeComponent,
+    canActivate: [AuthService],
+  },
 ];
 
 @NgModule({
