@@ -52,7 +52,8 @@ export interface Employ {
     perDistrictid: number;
     perPinCode: string;
   };
-  obj4:{
+  obj5:{
+    email: string;
     password: string;
   }
 }

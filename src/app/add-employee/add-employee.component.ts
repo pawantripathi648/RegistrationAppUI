@@ -73,9 +73,10 @@ export class AddEmployeeComponent {
       perDistrictid: 0,
       perPinCode: '',
     },
-    obj4: {
-      password:'',
-    }
+    obj5: {
+      email:'',
+      password: ''
+    },
   };
   a: any;
 
@@ -197,7 +198,7 @@ export class AddEmployeeComponent {
       next: (employee) => {
         console.log(employee);
 
-        this.router.navigate(['/']);
+        this.router.navigate(['/employee']);
         console.log(employee);
       },
     });
