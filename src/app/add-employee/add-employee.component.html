@@ -4,29 +4,29 @@
 
   <div class="row">
     <div class="col-10">
-      <form (ngSubmit)="addEmployees()">
+      <form #form="ngForm" (ngSubmit)="addEmployees()">
         <table>
           <tr>
             <td class="col-7">
               <div class="d-inline ">
                 <label for="firstName" class="form-label">First name</label>
                 <input type="text" class="form-control" placeholder="Eg. Xyz" id="firstName" name="firstName"
-                  [(ngModel)]="addEmployee.obj1.firstName">
+                   [(ngModel)]="addEmployee.obj1.firstName">
               </div>
               <div class="d-inline ">
                 <label for="lastName" class="form-label">Last name</label>
                 <input type="text" class="form-control" placeholder="Eg. Xyz" id="lastName" name="lastName"
-                  [(ngModel)]="addEmployee.obj1.lastName">
+                   [(ngModel)]="addEmployee.obj1.lastName">
               </div>
               <div class="mb-2 ">
                 <label for="fname" class="form-label">Father name</label>
                 <input type="text" class="form-control" id="fname" name="fname" placeholder="Eg. abc"
-                  [(ngModel)]="addEmployee.obj1.fname" required>
+                   [(ngModel)]="addEmployee.obj1.fname" required>
               </div>
               <div class="mb-2 ">
                 <label for="mname" class="form-label">Mother name</label>
                 <input type="text" class="form-control" id="mname" name="mname" placeholder="Eg. abc"
-                  [(ngModel)]="addEmployee.obj1.mname" required>
+                   [(ngModel)]="addEmployee.obj1.mname" required>
               </div>
             </td>
             <td> </td>
@@ -35,7 +35,7 @@
                 <label for="profileimg" class="form-label col-9">Upload Image</label>
                 <img [src]="url" class="rounded mx-auto d-block" alt="preview" width="200px" height="200px"> <br>
                 <input type="file" class="img" [accept]="'.jpg , .jpeg , .jfif , .pjpeg , .pjp , .png, .svg, .webp'"
-                  id="profileimg" name="profileimg" [(ngModel)]="addEmployee.obj1.profileimg"
+                  id="profileimg" name="profileimg"  [(ngModel)]="addEmployee.obj1.profileimg"
                   (change)="onSelectFile($event)">
               </div>
             </td>
@@ -47,7 +47,7 @@
                   <!-- <mat-icon> email</mat-icon> -->
                   Email address</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Eg. abc@gmail.com"
-                  [(ngModel)]="addEmployee.obj1.email">
+                   [(ngModel)]="addEmployee.obj1.email">
               </div>
             </td>
             <td> </td>
@@ -58,7 +58,7 @@
                   <!-- <mat-icon class="icon-display"> call</mat-icon> -->
                   Mobile No.</label>
                 <input type="text" class="form-control" id="mnumber" name="mnumber" placeholder="Eg. 1234567234"
-                  [(ngModel)]="addEmployee.obj1.mnumber">
+                   [(ngModel)]="addEmployee.obj1.mnumber">
               </div>
             </td>
           </tr>
@@ -69,7 +69,7 @@
                   <mat-icon> remove_red_eye</mat-icon>
                   Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Eg. Password"
-                  [(ngModel)]="addEmployee.obj5.password">
+                   [(ngModel)]="addEmployee.obj5.password">
               </div>
             </td>
             <td></td>
@@ -88,7 +88,7 @@
               <label class="form-label mr-1">Qualification</label>
               <mat-form-field class="mx-3">
                 <mat-label for="Qualification">Choose Qualification</mat-label>
-                <mat-select id="Qualification" [(ngModel)]="addEmployee.obj1.eid" name="Qualification">
+                <mat-select id="Qualification"  [(ngModel)]="addEmployee.obj1.eid" name="Qualification">
                   <mat-option name="Qualification" *ngFor="let educationMaster of educationMaster"
                     [value]="educationMaster.eid"
                     (click)="educationMaster.eid">{{educationMaster.courseName}}</mat-option>
@@ -104,7 +104,7 @@
               <div class="mb-2 ">
                 <label for="perLone" class="form-label">Line One </label>
                 <input type="text" class="form-control" id="perLone" name="perLone" placeholder="Line 1"
-                  [(ngModel)]="addEmployee.obj3.perLone">
+                   [(ngModel)]="addEmployee.obj3.perLone">
               </div>
             </td>
             <td> </td>
@@ -112,7 +112,7 @@
               <div class="mb-2 ">
                 <label for="perLtwo" class="form-label">Line Two </label>
                 <input type="text" class="form-control" id="perLtwo" name="perLtwo" placeholder="Line 2"
-                  [(ngModel)]="addEmployee.obj3.perLtwo">
+                   [(ngModel)]="addEmployee.obj3.perLtwo">
               </div>
             </td>
           </tr>
@@ -121,7 +121,7 @@
               <div class="mb-2">
                 <label for="perCity" class="form-label">City</label>
                 <input type="text" class="form-control" id="perCity" name="perCity" placeholder="Eg. Delhi"
-                  [(ngModel)]="addEmployee.obj3.perCity">
+                   [(ngModel)]="addEmployee.obj3.perCity">
               </div>
             </td>
             <td></td>
@@ -129,7 +129,7 @@
               <div>
                 <label for="perPincode" class="form-label">Pincode</label>
                 <input type="text" class="form-control" id="perPincode" name="perPincode" placeholder="Eg. 201301"
-                  [(ngModel)]="addEmployee.obj3.perPinCode">
+                   [(ngModel)]="addEmployee.obj3.perPinCode">
               </div>
             </td>
           </tr>
@@ -140,7 +140,7 @@
                 <label class="form-label mr-1">Country</label>
                 <mat-form-field class="mx-2">
                   <mat-label for="perCountryid">Choose Country</mat-label>
-                  <mat-select id="perCountry" [(ngModel)]="addEmployee.obj3.perCountryid" name="perCountryid">
+                  <mat-select id="perCountry"  [(ngModel)]="addEmployee.obj3.perCountryid" name="perCountryid">
                     <mat-option *ngFor="let perCountryMaster of permanentCountryMaster"
                       [value]="perCountryMaster.countryid"
                       (click)="onSelectStateName(perCountryMaster.countryid)">{{perCountryMaster.countryName}}</mat-option>
@@ -151,7 +151,7 @@
                 <label class="form-label mr-1">State</label>
                 <mat-form-field class="mx-2">
                   <mat-label for="perState">Choose State</mat-label>
-                  <mat-select id="perState" [(ngModel)]="addEmployee.obj3.perStateid" name="perState">
+                  <mat-select id="perState"  [(ngModel)]="addEmployee.obj3.perStateid" name="perState">
                     <mat-option *ngFor="let perStateMaster of permanentStateMaster" [value]="perStateMaster.stateid"
                       (click)="onSelectDistrictName(perStateMaster.stateid)">{{perStateMaster.stateName}}</mat-option>
                   </mat-select>
@@ -164,7 +164,7 @@
                 <label class="form-label mr-1">District</label>
                 <mat-form-field class="mx-2">
                   <mat-label for="perDistrict">Choose District</mat-label>
-                  <mat-select id="perDistrict" [(ngModel)]="addEmployee.obj3.perDistrictid" name="perDistrict">
+                  <mat-select id="perDistrict"  [(ngModel)]="addEmployee.obj3.perDistrictid" name="perDistrict">
                     <mat-option *ngFor="let perDistrictMaster of permanentDistrictMaster "
                       [value]="perDistrictMaster.districtid" (click)="perDistrictMaster.stateid">
                       {{perDistrictMaster.districtName}}</mat-option>
@@ -186,7 +186,7 @@
               <div class="mb-2">
                 <label for="LOne" class="form-label">Line One </label>
                 <input type="text" class="form-control" id="LOne" name="LOne" placeholder="Line 1"
-                  [(ngModel)]="addEmployee.obj2.LOne">
+                   [(ngModel)]="addEmployee.obj2.LOne">
               </div>
             </td>
             <td></td>
@@ -194,7 +194,7 @@
               <div class="mb-2">
                 <label for="LTwo" class="form-label">Line Two </label>
                 <input type="text" class="form-control" id="LTwo" name="LTwo" placeholder="Line 2"
-                  [(ngModel)]="addEmployee.obj2.LTwo">
+                   [(ngModel)]="addEmployee.obj2.LTwo">
               </div>
             </td>
           </tr>
@@ -203,7 +203,7 @@
               <div class="mb-2">
                 <label for="corCity" class="form-label">City</label>
                 <input type="text" class="form-control" id="corCity" name="corCity" placeholder="Eg. Delhi"
-                  [(ngModel)]="addEmployee.obj2.city">
+                   [(ngModel)]="addEmployee.obj2.city">
               </div>
             </td>
             <td></td>
@@ -211,7 +211,7 @@
               <div class="mb-2">
                 <label for="corPincode" class="form-label">Pincode</label>
                 <input type="text" class="form-control" id="corPincode" name="corpincode" placeholder="Eg. 201301"
-                  [(ngModel)]="addEmployee.obj2.pincode">
+                   [(ngModel)]="addEmployee.obj2.pincode">
               </div>
             </td>
           </tr>
@@ -221,7 +221,7 @@
                 <label class="form-label mr-1">Country</label>
                 <mat-form-field class="mx-2">
                   <mat-label for="corCountry">Choose Country</mat-label>
-                  <mat-select id="corCountry" [(ngModel)]="addEmployee.obj2.countryid" name="corCountry">
+                  <mat-select id="corCountry"  [(ngModel)]="addEmployee.obj2.countryid" name="corCountry">
                     <mat-option *ngFor="let corCountryMaster of corosCountryMaster" [value]="corCountryMaster.countryid"
                       (click)="onSelectCorStateName(corCountryMaster.countryid)">{{corCountryMaster.countryName}}</mat-option>
                   </mat-select>
@@ -229,7 +229,7 @@
                 <label class="form-label mr-1">State</label>
                 <mat-form-field class="mx-2">
                   <mat-label for="corState">Choose State</mat-label>
-                  <mat-select id="corState" [(ngModel)]="addEmployee.obj2.stateid" name="corState">
+                  <mat-select id="corState"  [(ngModel)]="addEmployee.obj2.stateid" name="corState">
                     <mat-option *ngFor="let corStateMaster of corosStateMaster" [value]="corStateMaster.stateid"
                       (click)="onSelectCorDistrictName(corStateMaster.stateid)">{{corStateMaster.stateName}}</mat-option>
                   </mat-select>
@@ -242,7 +242,7 @@
                 <label class="form-label mr-1">District</label>
                 <mat-form-field class="mx-2">
                   <mat-label for="corDistrict">Choose District</mat-label>
-                  <mat-select id="corDistrict" [(ngModel)]="addEmployee.obj2.districtid" name="corDistrict">
+                  <mat-select id="corDistrict"  [(ngModel)]="addEmployee.obj2.districtid" name="corDistrict">
                     <mat-option *ngFor="let corDistrictMaster of corosDistrictMaster "
                       [value]="corDistrictMaster.districtid"
                       (click)="corDistrictMaster.stateid">{{corDistrictMaster.districtName}}</mat-option>

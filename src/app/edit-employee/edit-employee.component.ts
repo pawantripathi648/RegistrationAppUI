@@ -73,7 +73,7 @@ export class EditEmployeeComponent implements OnInit {
     perPincode: '',
   };
 
-  addEmployee: Employed = {
+  updateDetails: Employed = {
     obj1: {
       id: 0,
       firstName: '',
@@ -117,7 +117,7 @@ export class EditEmployeeComponent implements OnInit {
       reader.onload=(event: any)=>{
         this.url =event.target.result;
         this.a = a.target.files[0];
-        this.addEmployee.obj1.profileimg =a.target.files[0].name;
+        this.updateDetails.obj1.profileimg =a.target.files[0].name;
         // console.log( a.files.name);
         }
     }
@@ -198,25 +198,42 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   updateEmployee() {
-    let str = this.addEmployee.obj1.firstName;
+    //title case conversion
+    let str = this.updateDetails.obj1.firstName;
     str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
-    this.addEmployee.obj1.firstName = str;
+    this.updateDetails.obj1.firstName = str;
 
     //last name in small letters
-    str = this.addEmployee.obj1.lastName;
+    str = this.updateDetails.obj1.lastName;
     if (str.length == 0) {
       str = '--';
     } else {
       str = str.toLowerCase();
     }
-    this.addEmployee.obj1.lastName = str;
+    this.updateDetails.obj1.lastName = str;
+    //fname
+    str = this.updateDetails.obj1.fname;
+    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
+    this.updateDetails.obj1.fname = str;
+    //mname
+    str = this.updateDetails.obj1.mname;
+    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
+    this.updateDetails.obj1.mname = str;
+    //city
+    str = this.updateDetails.obj2.city;
+    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
+    this.updateDetails.obj2.city = str;
+
+    str = this.updateDetails.obj3.perCity;
+    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
+    this.updateDetails.obj3.perCity = str;
 
     this.employeeService
       .updateEmployee(
         this.detailEmployee.id,
         this.detailEmployee.aid,
         this.detailEmployee.perAid,
-        this.addEmployee
+        this.updateDetails
       )
       .subscribe({
         next: () => {

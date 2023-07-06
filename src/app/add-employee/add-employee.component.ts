@@ -14,6 +14,7 @@ import {
 } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { UploadService } from '../upload.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-employee',
@@ -184,15 +185,23 @@ export class AddEmployeeComponent {
     } else {
       str = str.toLowerCase();
     }
-
     this.addEmployee.obj1.lastName = str;
-    // let formData = new FormData();
-    // // formData.set('name', this.name);
-    // formData.set('file', this.file);
-    // this.http.post('file:C:/Users/pawan/Desktop/People registration app/RegistrationAppUI/src/assets/',formData).subscribe((
-    //   (Response: any)=>{})
-    // );
+    //fname
+    str = this.addEmployee.obj1.fname;
+    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
+    this.addEmployee.obj1.fname = str;
+    //mname
+    str = this.addEmployee.obj1.mname;
+    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
+    this.addEmployee.obj1.mname = str;
+    //city
+    str = this.addEmployee.obj2.city;
+    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
+    this.addEmployee.obj2.city = str;
 
+    str = this.addEmployee.obj3.perCity;
+    str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
+    this.addEmployee.obj3.perCity = str;
     this.employeesService.addEmployees(this.addEmployee).subscribe({
       next: (employee) => {
         console.log(employee);

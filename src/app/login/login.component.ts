@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeesService } from '../employees.service';
 import { UploadService } from '../upload.service';
 import { AuthService } from '../auth.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
