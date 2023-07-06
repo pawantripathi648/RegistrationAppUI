@@ -14,6 +14,10 @@ const routes: Routes = [
     canActivate: [AuthService],
   },
   {
+    path: 'signup',
+    component: AddEmployeeComponent,
+  },
+  {
     path: 'employee',
     component: EmployeelistComponent,
     canActivate: [AuthService],
