@@ -41,7 +41,6 @@ export class AddEmployeeComponent {
   id = 0;
 
   params = 0;
-  filename = '';
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 

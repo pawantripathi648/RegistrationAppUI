@@ -3,204 +3,257 @@
   <h1 class="mb-2">Edit Employee</h1>
 
   <div class="row">
-    <div class="col-8">
+    <div class="col-10">
       <form #form="ngForm">
-        <div class="mb-2">
-          <label for="id" class="form-label">ID</label>
-          <input type="text" class="form-control" id="id" readonly name="id" [(ngModel)]="detailEmployee.id">
-        </div>
-        <div class="d-inline ">
-          <label for="firstName" class="form-label">First name</label>
-          <input type="text" class="form-control" id="firstName" value="{{detailEmployee.firstName}}" name="firstName"
-            [(ngModel)]="updateDetails.obj1.firstName">
-        </div>
-        <div class="d-inline ">
-          <label for="lastName" class="form-label">Last name</label>
-          <input type="text" class="form-control" id="lastName" name="lastName" value="{{detailEmployee.lastName}}"
-            [(ngModel)]="updateDetails.obj1.lastName" required>
-        </div>
-        <div class="d-inline ">
-          <label for="profileimg" class="form-label col-9">Upload Image</label>
-          <img [src]="url+[detailEmployee.profileimg]" alt="preview" width="200px" height="200px"> <br>
-          <input type="file" class="img" [accept]="'.jpg , .jpeg , .jfif , .pjpeg , .pjp , .png, .svg, .webp'"  id="profileimg" name="profileimg" value="detailEmployee.profileimg"
-            [(ngModel)]="updateDetails.obj1.profileimg" (change)="onSelectFile($event)">
-        </div>
-        <div class="mb-2 ">
-          <label for="fname" class="form-label">Father name</label>
-          <input type="text" class="form-control" id="fname" name="fname" value="{{detailEmployee.fname}}"
-            [(ngModel)]="updateDetails.obj1.fname" required>
-        </div>
-        <div class="mb-2 ">
-          <label for="mname" class="form-label">Mother name</label>
-          <input type="text" class="form-control" id="mname" name="mname" value="{{detailEmployee.mname}}"
-            [(ngModel)]="updateDetails.obj1.mname" required>
-        </div>
-        <div class="mb-2">
-          <label for="mnumber" class="form-label">Mobile No.</label>
-          <input type="text" class="form-control" id="mnumber" name="mnumber" value="{{detailEmployee.mnumber}}"
-            [(ngModel)]="updateDetails.obj1.mnumber">
-        </div>
-        <div class="mb-2 ">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" value="{{detailEmployee.email}}"
-            [(ngModel)]="updateDetails.obj1.email">
-        </div>
-        <div class="mb-2">
-          <label class="form-label mr-1">Qualification</label>
-          <mat-form-field class="mx-3">
-            <mat-label for="Qualification">{{detailEmployee.courseName}}</mat-label>
-            <mat-select id="Qualification" value="{{detailEmployee.courseName}}" [(ngModel)]="updateDetails.obj1.eid"
-              name="Qualification">
-              <mat-option name="Qualification" *ngFor="let educationMaster of educationMaster"
-                [value]="educationMaster.eid">{{educationMaster.courseName}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+        <table>
+          <tr>
+            <td class="col-7">
+              <div class="d-inline ">
+                <label for="firstName" class="form-label">First name</label>
+                <input type="text" class="form-control" placeholder="Eg. Xyz" id="firstName" name="firstName"
+                   [(ngModel)]="detailEmployee.firstName">
+              </div>
+              <div class="d-inline ">
+                <label for="lastName" class="form-label">Last name</label>
+                <input type="text" class="form-control" placeholder="Eg. Xyz" id="lastName" name="lastName"
+                   [(ngModel)]="detailEmployee.lastName">
+              </div>
+              <div class="mb-2 ">
+                <label for="fname" class="form-label">Father name</label>
+                <input type="text" class="form-control" id="fname" name="fname" placeholder="Eg. abc"
+                   [(ngModel)]="detailEmployee.fname" required>
+              </div>
+              <div class="mb-2 ">
+                <label for="mname" class="form-label">Mother name</label>
+                <input type="text" class="form-control" id="mname" name="mname" placeholder="Eg. abc"
+                   [(ngModel)]="detailEmployee.mname" required>
+              </div>
+            </td>
+            <td> </td>
+            <td class="row-5 col-8">
+              <div class="d-inline ">
+                <label for="profileimg" class="form-label col-9">Upload Image</label>
+                <img [src]="url" class="rounded mx-auto d-block" alt="preview" width="200px" height="200px"> <br>
+                <input type="file" class="img" [accept]="'.jpg , .jpeg , .jfif , .pjpeg , .pjp , .png, .svg, .webp'"
+                  id="profileimg" name="profileimg"  [(ngModel)]="detailEmployee.profileimg"
+                  (change)="onSelectFile($event)">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="mb-2 ">
+                <label for="email" class="form-label">
+                  <!-- <mat-icon> email</mat-icon> -->
+                  Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Eg. abc@gmail.com"
+                   [(ngModel)]="detailEmployee.email">
+              </div>
+            </td>
+            <td> </td>
+            <td>
+              <div class="mb-2">
+                <label for="mnumber" class="form-label">
+                  <!-- <mat-icon class="icon-display"> call</mat-icon> -->
+                  Mobile No.</label>
+                <input type="text" class="form-control" id="mnumber" name="mnumber" placeholder="Eg. 1234567234"
+                   [(ngModel)]="detailEmployee.mnumber">
+              </div>
+            </td>
+          </tr>
+          <!-- <tr>
+            <td>
+              <div class="mb-2 ">
+                <label for="password" class="form-label">
+                  <mat-icon> remove_red_eye</mat-icon>
+                  Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Eg. Password"
+                   [(ngModel)]="detailEmployee.password">
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <div class="mb-2 ">
+                <label for="password" class="form-label">
+                  <mat-icon> remove_red_eye</mat-icon>
+                  Confirm Password</label>
+                <input type="password" class="form-control" id="passwordcnfrm" name="password"
+                  placeholder="Eg. password">
+              </div>
+            </td>
+          </tr> -->
+          <tr>
+            <div class="mb-2">
+              <label class="form-label mr-1">Qualification</label>
+              <mat-form-field class="mx-3">
+                <mat-label for="Qualification">Choose Qualification</mat-label>
+                <mat-select id="Qualification"  [(ngModel)]="detailEmployee.eid" name="Qualification">
+                  <mat-option name="Qualification" *ngFor="let educationMaster of educationMaster"
+                    [value]="educationMaster.eid"
+                    >{{educationMaster.courseName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+          </tr>
+          <!-- permanentAddress -->
+          <label class="my-4">Permanent Address</label>
+          <tr>
+            <td>
+              <div class="mb-2 ">
+                <label for="perLone" class="form-label">Line One </label>
+                <input type="text" class="form-control" id="perLone" name="perLone" placeholder="Line 1"
+                   [(ngModel)]="detailEmployee.perLOne">
+              </div>
+            </td>
+            <td> </td>
+            <td>
+              <div class="mb-2 ">
+                <label for="perLtwo" class="form-label">Line Two </label>
+                <input type="text" class="form-control" id="perLtwo" name="perLtwo" placeholder="Line 2"
+                   [(ngModel)]="detailEmployee.perLTwo">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="mb-2">
+                <label for="perCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="perCity" name="perCity" placeholder="Eg. Delhi"
+                   [(ngModel)]="detailEmployee.perCity">
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <div>
+                <label for="perPincode" class="form-label">Pincode</label>
+                <input type="text" class="form-control" id="perPincode" name="perPincode" placeholder="Eg. 201301"
+                   [(ngModel)]="detailEmployee.perPincode">
+              </div>
+            </td>
+          </tr>
+          <!-- permanent country state district start-->
+          <tr>
+            <td>
+              <div class="">
+                <label class="form-label mr-1">Country</label>
+                <mat-form-field class="mx-2">
+                  <mat-label for="perCountryid">Choose Country</mat-label>
+                  <mat-select id="perCountry"  [(ngModel)]="detailEmployee.perCountryId" name="perCountryid">
+                    <mat-option *ngFor="let perCountryMaster of permanentCountryMaster"
+                      [value]="perCountryMaster.countryid"
+                      (click)="onSelectStateName(perCountryMaster.countryid)">{{perCountryMaster.countryName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!-- </div>
+            <div class=""> -->
+                <label class="form-label mr-1">State</label>
+                <mat-form-field class="mx-2">
+                  <mat-label for="perState">Choose State</mat-label>
+                  <mat-select id="perState"  [(ngModel)]="detailEmployee.perStateId" name="perState">
+                    <mat-option *ngFor="let perStateMaster of permanentStateMaster" [value]="perStateMaster.stateid"
+                      (click)="onSelectDistrictName(perStateMaster.stateid)">{{perStateMaster.stateName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <div class="my-3">
+                <label class="form-label mr-1">District</label>
+                <mat-form-field class="mx-2">
+                  <mat-label for="perDistrict">Choose District</mat-label>
+                  <mat-select id="perDistrict"  [(ngModel)]="detailEmployee.perDistrictId" name="perDistrict">
+                    <mat-option *ngFor="let perDistrictMaster of permanentDistrictMaster "
+                      [value]="perDistrictMaster.districtid" (click)="perDistrictMaster.stateid">
+                      {{perDistrictMaster.districtName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
 
 
-        <!-- permanentAddress -->
+          <!-- per country state district detail end -->
 
 
-        <label class="my-4">Permanent Address</label>
+          <!-- Correspondence start -->
+
+          <label class="my-4">Correspondence Address</label>
+          <tr>
+            <td>
+              <div class="mb-2">
+                <label for="LOne" class="form-label">Line One </label>
+                <input type="text" class="form-control" id="LOne" name="LOne" placeholder="Line 1"
+                   [(ngModel)]="detailEmployee.lOne">
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <div class="mb-2">
+                <label for="LTwo" class="form-label">Line Two </label>
+                <input type="text" class="form-control" id="LTwo" name="LTwo" placeholder="Line 2"
+                   [(ngModel)]="detailEmployee.lTwo">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="mb-2">
+                <label for="corCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="corCity" name="corCity" placeholder="Eg. Delhi"
+                   [(ngModel)]="detailEmployee.city">
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <div class="mb-2">
+                <label for="corPincode" class="form-label">Pincode</label>
+                <input type="text" class="form-control" id="corPincode" name="corpincode" placeholder="Eg. 201301"
+                   [(ngModel)]="detailEmployee.pincode">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="mb-3">
+                <label class="form-label mr-1">Country</label>
+                <mat-form-field class="mx-2">
+                  <mat-label for="corCountry">Choose Country</mat-label>
+                  <mat-select id="corCountry"  [(ngModel)]="detailEmployee.ccountryId" name="corCountry">
+                    <mat-option *ngFor="let corCountryMaster of corosCountryMaster" [value]="corCountryMaster.countryid"
+                      (click)="onSelectCorStateName(corCountryMaster.countryid)">{{corCountryMaster.countryName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <label class="form-label mr-1">State</label>
+                <mat-form-field class="mx-2">
+                  <mat-label for="corState">Choose State</mat-label>
+                  <mat-select id="corState"  [(ngModel)]="detailEmployee.cstateId" name="corState">
+                    <mat-option *ngFor="let corStateMaster of corosStateMaster" [value]="corStateMaster.stateid"
+                      (click)="onSelectCorDistrictName(corStateMaster.stateid)">{{corStateMaster.stateName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <div class="mb-3">
+                <label class="form-label mr-1">District</label>
+                <mat-form-field class="mx-2">
+                  <mat-label for="corDistrict">Choose District</mat-label>
+                  <mat-select id="corDistrict"  [(ngModel)]="detailEmployee.cdistrictId" name="corDistrict">
+                    <mat-option *ngFor="let corDistrictMaster of corosDistrictMaster "
+                      [value]="corDistrictMaster.districtid">{{corDistrictMaster.districtName}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
 
 
-
-        <div class="mb-2 ">
-          <label for="perLone" class="form-label">Line One </label>
-          <input type="text" class="form-control" id="perLone" name="perLone" value="{{detailEmployee.perLOne}}"
-            [(ngModel)]="updateDetails.obj3.perLone">
-        </div>
-        <div class="mb-2 ">
-          <label for="perLtwo" class="form-label">Line Two </label>
-          <input type="text" class="form-control" id="perLtwo" name="perLtwo" value="{{detailEmployee.perLTwo}}"
-            [(ngModel)]="updateDetails.obj3.perLtwo">
-        </div>
-
-
-        <div class="mb-2">
-          <label for="perCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="perCity" name="perCity" value="{{detailEmployee.perCity}}"
-            [(ngModel)]="updateDetails.obj3.perCity">
-        </div>
-
-        <!-- permanent country state district start-->
-
-
-        <div class="my-3">
-          <label class="form-label mr-1">Country</label>
-          <mat-form-field class="mx-2">
-            <mat-label for="perCountryid">{{detailEmployee.perCountryName}}</mat-label>
-            <mat-select id="perCountry" ngModel="{{detailEmployee.perCountryName}}"
-              [(ngModel)]="updateDetails.obj3.perCountryid" name="perCountryid">
-              <mat-option *ngFor="let perCountryMaster of permanentCountryMaster" [value]="perCountryMaster.countryid"
-                (click)="onSelectStateName(perCountryMaster.countryid)">{{perCountryMaster.countryName}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <label class="form-label mr-1">State</label>
-          <mat-form-field class="mx-2">
-            <mat-label for="perState">{{detailEmployee.perStateName}}</mat-label>
-            <mat-select id="perState" ngModel="{{detailEmployee.perStateName}}"
-              [(ngModel)]="updateDetails.obj3.perStateid" name="perState">
-              <mat-option *ngFor="let perStateMaster of permanentStateMaster" [value]="perStateMaster.stateid"
-                (click)="onSelectDistrictName(perStateMaster.stateid)">{{perStateMaster.stateName}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <label class="form-label mr-1">District</label>
-          <mat-form-field class="mx-2">
-            <mat-label for="perDistrict">{{detailEmployee.perDistrictName}}</mat-label>
-            <mat-select id="perDistrict" ngModel="{{detailEmployee.perDistrictName}}"
-              [(ngModel)]="updateDetails.obj3.perDistrictid" name="perDistrict">
-              <mat-option *ngFor="let perDistrictMaster of permanentDistrictMaster "
-                [value]="perDistrictMaster.districtid" (click)="perDistrictMaster.stateid">
-                {{perDistrictMaster.districtName}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <!-- per country state district detail end -->
-
-
-        <div>
-          <label for="perPincode" class="form-label">Pincode</label>
-          <input type="text" class="form-control" id="perPincode" name="perPincode"
-            ngModel="{{detailEmployee.perPincode}}" [(ngModel)]="updateDetails.obj3.perPinCode">
-        </div>
-
-
-        <!-- per address end -->
-        <!-- Correspondence start -->
-
-
-        <label class="my-4">Correspondence Address</label>
-
-
-
-        <div class="mb-2">
-          <label for="LOne" class="form-label">Line One </label>
-          <input type="text" class="form-control" id="LOne" name="LOne" [value]="detailEmployee.lOne"
-            [(ngModel)]="updateDetails.obj2.lOne">
-        </div>
-        <div class="mb-2">
-          <label for="LTwo" class="form-label">Line Two </label>
-          <input type="text" class="form-control" id="LTwo" name="LTwo"  [value]="detailEmployee.lTwo"
-            [(ngModel)]="updateDetails.obj2.lTwo">
-        </div>
-
-
-
-        <div class="mb-2">
-          <label for="corCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="corCity" name="corCity" [value]="detailEmployee.city"
-            [(ngModel)]="updateDetails.obj2.city">
-        </div>
-
-
-
-
-        <!-- Correspondence country state District start -->
-
-
-        <div class="mb-3">
-          <label class="form-label mr-1">Country</label>
-          <mat-form-field class="mx-2">
-            <mat-label for="corCountry">Country Name</mat-label>
-            <mat-select id="corCountry" ngModel="{{detailEmployee.countryName}}"
-              [(ngModel)]="updateDetails.obj2.countryid"  name="corCountry">
-              <mat-option *ngFor="let corCountryMaster of corosCountryMaster" value="detailEmployee.countryName"
-                (click)="onSelectCorStateName(corCountryMaster.countryid)">{{corCountryMaster.countryName}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <label class="form-label mr-1">State</label>
-          <mat-form-field class="mx-2">
-            <mat-label for="corState">{{detailEmployee.stateName}}</mat-label>
-            <mat-select id="corState" ngModel="{{detailEmployee.stateName}}" [(ngModel)]="updateDetails.obj2.stateid"
-              name="corState">
-              <mat-option *ngFor="let corStateMaster of corosStateMaster" [value]="corStateMaster.stateid"
-                (click)="onSelectCorDistrictName(corStateMaster.stateid)">{{corStateMaster.stateName}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <label class="form-label mr-1">District</label>
-          <mat-form-field class="mx-2">
-            <mat-label for="corDistrict">{{detailEmployee.districtName}}</mat-label>
-            <mat-select id="corDistrict" ngModel="{{detailEmployee.districtName}}"
-              [(ngModel)]="updateDetails.obj2.districtid" name="corDistrict">
-              <mat-option *ngFor="let corDistrictMaster of corosDistrictMaster " [value]="corDistrictMaster.districtid"
-                (click)="corDistrictMaster.stateid">{{corDistrictMaster.districtName}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <!-- Correspondence country state end  -->
-        <div class="mb-2">
-          <label for="corPincode" class="form-label">Pincode</label>
-          <input type="text" class="form-control" id="corPincode" name="corpincode" ngModel="{{detailEmployee.pincode}}"
-            [(ngModel)]="updateDetails.obj2.pincode">
-        </div>
-
-
+              <!-- Correspondence address end -->
+            </td>
+          </tr>
+        </table>
         <!-- Correspondence address end -->
-
         <!-- <button type="submit" class="btn btn-primary" mat-stroked-button>Submit</button> -->
 
         <button type="submit" class="btn btn-primary" mat-stroked-button (click)="updateEmployee()">Update </button>

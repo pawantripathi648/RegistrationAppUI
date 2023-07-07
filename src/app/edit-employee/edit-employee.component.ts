@@ -51,78 +51,51 @@ export class EditEmployeeComponent implements OnInit {
     mnumber: '',
     email: '',
     profileimg: '',
+    eid: 0,
     courseName: '',
     aid: 0,
     lOne: '',
     lTwo: '',
     city: '',
-    CcountryId: 0,
+    ccountryId: 0,
     countryName: '',
-    CstateId: 0,
+    cstateId: 0,
     stateName: '',
-    CdistrictId: 0,
+    cdistrictId: 0,
     districtName: '',
     pincode: '',
     perAid: 0,
     perLOne: '',
     perLTwo: '',
     perCity: '',
+    perCountryId: 0,
     perCountryName: '',
+    perStateId: 0,
     perStateName: '',
+    perDistrictId: 0,
     perDistrictName: '',
     perPincode: '',
   };
-
-  updateDetails: Employed = {
-    obj1: {
-      id: 0,
-      firstName: '',
-      lastName: '',
-      fname: '',
-      mname: '',
-      mnumber: '',
-      email: '',
-      profileimg: '',
-      eid: 0,
-    },
-    obj2: {
-      aid: 0,
-      lOne: '',
-      lTwo: '',
-      city: '',
-      countryid: 0,
-      stateid: 0,
-      districtid: 0,
-      pincode: '',
-    },
-    obj3: {
-      perAid: 0,
-      perLone: '',
-      perLtwo: '',
-      perCity: '',
-      perCountryid: 0,
-      perStateid: 0,
-      perDistrictid: 0,
-      perPinCode: '',
-    },
-  };
-  name: string='';
+  corcid = 0;
+  percid = 0;
+  corsid = 0;
+  persid = 0;
+  name: string = '';
   file: any;
   a: any;
- url="/assets/";
-  onSelectFile(a: any){
-    if(a.target.files){
+  url = '/assets/';
+  onSelectFile(a: any) {
+    if (a.target.files) {
       var reader = new FileReader();
       reader.readAsDataURL(a.target.files[0]);
-      reader.onload=(event: any)=>{
-        this.url =event.target.result;
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
         this.a = a.target.files[0];
-        this.updateDetails.obj1.profileimg =a.target.files[0].name;
+        this.detailEmployee.profileimg = a.target.files[0].name;
         // console.log( a.files.name);
-        }
+      };
     }
-
-  };
+  }
   ngOnInit(): void {
     this.route.paramMap.subscribe({
       next: (params) => {
@@ -133,6 +106,16 @@ export class EditEmployeeComponent implements OnInit {
             next: (response: studentlistid[]) => {
               this.detailEmployee = response[0];
               console.log(response);
+              this.corcid = response[0].ccountryId;
+              this.percid = response[0].perCountryId;
+              this.corsid = response[0].cstateId;
+              this.persid = response[0].perStateId;
+              this.url = this.url+ [response[0].profileimg];
+              // console.log(this.corcid);
+              this.preloadcorsatetname(this.corcid);
+              this.preloadpersatetname(this.percid);
+              this.preloadcordistrictname(this.corsid);
+              this.preloadperdistrictname(this.persid);
             },
           });
         }
@@ -141,15 +124,44 @@ export class EditEmployeeComponent implements OnInit {
 
     this.employeeService.getEducation().subscribe((edData: any) => {
       this.educationMaster = edData;
-      console.log(edData);
+      // console.log(edData);
     });
 
-    this.employeeService.getCountries().subscribe((data: any) => {
-      this.corosCountryMaster = data;
-      this.permanentCountryMaster = data;
-      console.log(data);
+    this.employeeService.getCountries().subscribe((perCountrydata: any) => {
+      this.permanentCountryMaster = perCountrydata;
+      // console.log(perCountrydata);
+    });
+    this.employeeService.getCountries().subscribe((countrydata: any) => {
+      this.corosCountryMaster = countrydata;
+      // console.log(countrydata);
+    });
+
+}
+  preloadcorsatetname(id: number): void {
+    this.employeeService.getStates(id).subscribe((stateData: any) => {
+      this.corosStateMaster = stateData;
     });
   }
+  preloadpersatetname(id: number): void {
+    this.employeeService.getStates(id).subscribe((perstateData: any) => {
+      this.permanentStateMaster = perstateData;
+    });
+  }
+  preloadcordistrictname(id: number): void{
+    this.employeeService
+      .getDistrict(id)
+      .subscribe((districtData: any) => {
+        this.corosDistrictMaster = districtData;
+      });
+  }
+  preloadperdistrictname(id: number): void{
+    this.employeeService
+      .getDistrict(id)
+      .subscribe((perdistrictData: any) => {
+        this.permanentDistrictMaster = perdistrictData;
+      });
+  }
+
   onSelectCorStateName(id: number): void {
     this.params = id;
     this.getStates(id);
@@ -198,57 +210,94 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   updateEmployee() {
+    let updateDetails: Employed = {
+      obj1: {
+        id: this.detailEmployee.id,
+        firstName: this.detailEmployee.firstName,
+        lastName: this.detailEmployee.lastName,
+        fname: this.detailEmployee.fname,
+        mname: this.detailEmployee.mname,
+        mnumber: this.detailEmployee.mname,
+        email: this.detailEmployee.email,
+        profileimg: this.detailEmployee.profileimg,
+        eid: this.detailEmployee.eid,
+      },
+      obj2: {
+        aid: 0,
+        lOne: this.detailEmployee.lOne,
+        lTwo: this.detailEmployee.lTwo,
+        city: this.detailEmployee.city,
+        countryid: this.detailEmployee.ccountryId,
+        stateid: this.detailEmployee.cstateId,
+        districtid: this.detailEmployee.cdistrictId,
+        pincode: this.detailEmployee.pincode,
+      },
+      obj3: {
+        perAid: 0,
+        perLone: this.detailEmployee.perLTwo,
+        perLtwo: this.detailEmployee.perLTwo,
+        perCity: this.detailEmployee.perCity,
+        perCountryid: this.detailEmployee.perCountryId,
+        perStateid: this.detailEmployee.perStateId,
+        perDistrictid: this.detailEmployee.perDistrictId,
+        perPinCode: this.detailEmployee.perPincode,
+      },
+    };
     //title case conversion
-    let str = this.updateDetails.obj1.firstName;
+    let str = updateDetails.obj1.firstName;
     str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
-    this.updateDetails.obj1.firstName = str;
+    updateDetails.obj1.firstName = str;
 
     //last name in small letters
-    str = this.updateDetails.obj1.lastName;
+    str = updateDetails.obj1.lastName;
     if (str.length == 0) {
       str = '--';
     } else {
       str = str.toLowerCase();
     }
-    this.updateDetails.obj1.lastName = str;
+    updateDetails.obj1.lastName = str;
     //fname
-    str = this.updateDetails.obj1.fname;
+    str = updateDetails.obj1.fname;
     str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
-    this.updateDetails.obj1.fname = str;
+    updateDetails.obj1.fname = str;
     //mname
-    str = this.updateDetails.obj1.mname;
+    str = updateDetails.obj1.mname;
     str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
-    this.updateDetails.obj1.mname = str;
+    updateDetails.obj1.mname = str;
     //city
-    str = this.updateDetails.obj2.city;
+    str = updateDetails.obj2.city;
     str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
-    this.updateDetails.obj2.city = str;
+    updateDetails.obj2.city = str;
 
-    str = this.updateDetails.obj3.perCity;
+    str = updateDetails.obj3.perCity;
     str = str ? str.charAt(0).toUpperCase() + str.substr(1).toLowerCase() : '';
-    this.updateDetails.obj3.perCity = str;
+    updateDetails.obj3.perCity = str;
 
     this.employeeService
       .updateEmployee(
         this.detailEmployee.id,
         this.detailEmployee.aid,
         this.detailEmployee.perAid,
-        this.updateDetails
+        updateDetails
+      )
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/employee']);
+        },
+      });
+  }
+
+  deleteEmployee() {
+    this.employeeService
+      .deleteEmployee(
+        this.detailEmployee.id,
+        this.detailEmployee.aid,
+        this.detailEmployee.perAid
       )
       .subscribe({
         next: () => {
           this.router.navigate(['/']);
         },
       });
-  }
-
-  deleteEmployee() {
-    this.employeeService.deleteEmployee(this.detailEmployee.id,
-      this.detailEmployee.aid,
-      this.detailEmployee.perAid).subscribe({
-      next: () => {
-        this.router.navigate(['/']);
-      },
-    });
   }
 }
